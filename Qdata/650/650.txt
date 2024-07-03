@@ -1,27 +1,38 @@
-You are given a 0-indexed string word and an integer k.
-At every second, you must perform the following operations:
-Remove the first k characters of word.
-Add any k characters to the end of word.
-Note that you do not necessarily need to add the same characters that you removed. However, you must perform both operations at every second.
-Return the minimum time greater than zero required for word to revert to its initial state.
+Alice has an undirected tree with n nodes labeled from 0 to n - 1. The tree is represented as a 2D integer array edges of length n - 1 where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree.
+Alice wants Bob to find the root of the tree. She allows Bob to make several guesses about her tree. In one guess, he does the following:
+Chooses two distinct integers u and v such that there exists an edge [u, v] in the tree.
+He tells Alice that u is the parent of v in the tree.
+Bob's guesses are represented by a 2D integer array guesses where guesses[j] = [uj, vj] indicates Bob guessed uj to be the parent of vj.
+Alice being lazy, does not reply to each of Bob's guesses, but just says that at least k of his guesses are true.
+Given the 2D integer arrays edges, guesses and the integer k, return the number of possible nodes that can be the root of Alice's tree. If there is no such tree, return 0.
   Example 1:
-Input: word = "abacaba", k = 3
-Output: 2
-Explanation: At the 1st second, we remove characters "aba" from the prefix of word, and add characters "bac" to the end of word. Thus, word becomes equal to "cababac".
-At the 2nd second, we remove characters "cab" from the prefix of word, and add "aba" to the end of word. Thus, word becomes equal to "abacaba" and reverts to its initial state.
-It can be shown that 2 seconds is the minimum time greater than zero required for word to revert to its initial state.
+Input: edges = [[0,1],[1,2],[1,3],[4,2]], guesses = [[1,3],[0,1],[1,0],[2,4]], k = 3
+Output: 3
+Explanation: 
+Root = 0, correct guesses = [1,3], [0,1], [2,4]
+Root = 1, correct guesses = [1,3], [1,0], [2,4]
+Root = 2, correct guesses = [1,3], [1,0], [2,4]
+Root = 3, correct guesses = [1,0], [2,4]
+Root = 4, correct guesses = [1,3], [1,0]
+Considering 0, 1, or 2 as root node leads to 3 correct guesses.
 Example 2:
-Input: word = "abacaba", k = 4
-Output: 1
-Explanation: At the 1st second, we remove characters "abac" from the prefix of word, and add characters "caba" to the end of word. Thus, word becomes equal to "abacaba" and reverts to its initial state.
-It can be shown that 1 second is the minimum time greater than zero required for word to revert to its initial state.
-Example 3:
-Input: word = "abcbabcd", k = 2
-Output: 4
-Explanation: At every second, we will remove the first 2 characters of word, and add the same characters to the end of word.
-After 4 seconds, word becomes equal to "abcbabcd" and reverts to its initial state.
-It can be shown that 4 seconds is the minimum time greater than zero required for word to revert to its initial state.
+Input: edges = [[0,1],[1,2],[2,3],[3,4]], guesses = [[1,0],[3,4],[2,1],[3,2]], k = 1
+Output: 5
+Explanation: 
+Root = 0, correct guesses = [3,4]
+Root = 1, correct guesses = [1,0], [3,4]
+Root = 2, correct guesses = [1,0], [2,1], [3,4]
+Root = 3, correct guesses = [1,0], [2,1], [3,2], [3,4]
+Root = 4, correct guesses = [1,0], [2,1], [3,2]
+Considering any node as root will give at least 1 correct guess. 
   Constraints:
-1 <= word.length <= 106
-1 <= k <= word.length
-word consists only of lowercase English letters.
+edges.length == n - 1
+2 <= n <= 105
+1 <= guesses.length <= 105
+0 <= ai, bi, uj, vj <= n - 1
+ai != bi
+uj != vj
+edges represents a valid tree.
+guesses[j] is an edge of the tree.
+guesses is unique.
+0 <= k <= guesses.length

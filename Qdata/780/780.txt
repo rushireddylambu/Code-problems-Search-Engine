@@ -1,17 +1,16 @@
-You are given two arrays nums1 and nums2 consisting of positive integers.
-You have to replace all the 0's in both arrays with strictly positive integers such that the sum of elements of both arrays becomes equal.
-Return the minimum equal sum you can obtain, or -1 if it is impossible.
+A gene string can be represented by an 8-character long string, with choices from 'A', 'C', 'G', and 'T'.
+Suppose we need to investigate a mutation from a gene string startGene to a gene string endGene where one mutation is defined as one single character changed in the gene string.
+For example, "AACCGGTT" --> "AACCGGTA" is one mutation.
+There is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.
+Given the two gene strings startGene and endGene and the gene bank bank, return the minimum number of mutations needed to mutate from startGene to endGene. If there is no such a mutation, return -1.
+Note that the starting point is assumed to be valid, so it might not be included in the bank.
   Example 1:
-Input: nums1 = [3,2,0,1,0], nums2 = [6,5,0]
-Output: 12
-Explanation: We can replace 0's in the following way:
-- Replace the two 0's in nums1 with the values 2 and 4. The resulting array is nums1 = [3,2,2,1,4].
-- Replace the 0 in nums2 with the value 1. The resulting array is nums2 = [6,5,1].
-Both arrays have an equal sum of 12. It can be shown that it is the minimum sum we can obtain.
+Input: startGene = "AACCGGTT", endGene = "AACCGGTA", bank = ["AACCGGTA"]
+Output: 1
 Example 2:
-Input: nums1 = [2,0,2,0], nums2 = [1,4]
-Output: -1
-Explanation: It is impossible to make the sum of both arrays equal.
+Input: startGene = "AACCGGTT", endGene = "AAACGGTA", bank = ["AACCGGTA","AACCGCTA","AAACGGTA"]
+Output: 2
   Constraints:
-1 <= nums1.length, nums2.length <= 105
-0 <= nums1[i], nums2[i] <= 106
+0 <= bank.length <= 10
+startGene.length == endGene.length == bank[i].length == 8
+startGene, endGene, and bank[i] consist of only the characters ['A', 'C', 'G', 'T'].

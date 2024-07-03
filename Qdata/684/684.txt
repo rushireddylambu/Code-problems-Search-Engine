@@ -1,23 +1,20 @@
-There is an undirected connected tree with n nodes labeled from 0 to n - 1 and n - 1 edges.
-You are given the integer n and the array edges where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree.
-Return an array answer of length n where answer[i] is the sum of the distances between the ith node in the tree and all other nodes.
+Given an integer array nums and two integers firstLen and secondLen, return the maximum sum of elements in two non-overlapping subarrays with lengths firstLen and secondLen.
+The array with length firstLen could occur before or after the array with length secondLen, but they have to be non-overlapping.
+A subarray is a contiguous part of an array.
   Example 1:
-Input: n = 6, edges = [[0,1],[0,2],[2,3],[2,4],[2,5]]
-Output: [8,12,6,10,10,10]
-Explanation: The tree is shown above.
-We can see that dist(0,1) + dist(0,2) + dist(0,3) + dist(0,4) + dist(0,5)
-equals 1 + 1 + 2 + 2 + 2 = 8.
-Hence, answer[0] = 8, and so on.
+Input: nums = [0,6,5,2,2,5,1,9,4], firstLen = 1, secondLen = 2
+Output: 20
+Explanation: One choice of subarrays is [9] with length 1, and [6,5] with length 2.
 Example 2:
-Input: n = 1, edges = []
-Output: [0]
+Input: nums = [3,8,1,3,2,1,8,9,0], firstLen = 3, secondLen = 2
+Output: 29
+Explanation: One choice of subarrays is [3,8,1] with length 3, and [8,9] with length 2.
 Example 3:
-Input: n = 2, edges = [[1,0]]
-Output: [1,1]
+Input: nums = [2,1,5,6,0,9,5,0,3,8], firstLen = 4, secondLen = 3
+Output: 31
+Explanation: One choice of subarrays is [5,6,0,9] with length 4, and [0,3,8] with length 3.
   Constraints:
-1 <= n <= 3 * 104
-edges.length == n - 1
-edges[i].length == 2
-0 <= ai, bi < n
-ai != bi
-The given input represents a valid tree.
+1 <= firstLen, secondLen <= 1000
+2 <= firstLen + secondLen <= 1000
+firstLen + secondLen <= nums.length <= 1000
+0 <= nums[i] <= 1000

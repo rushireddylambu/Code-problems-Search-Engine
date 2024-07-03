@@ -1,13 +1,35 @@
-Given an integer array nums, return the maximum difference between two successive elements in its sorted form. If the array contains less than two elements, return 0.
-You must write an algorithm that runs in linear time and uses linear extra space.
+DataFrame report
++-------------+--------+
+| Column Name | Type   |
++-------------+--------+
+| product     | object |
+| quarter_1   | int    |
+| quarter_2   | int    |
+| quarter_3   | int    |
+| quarter_4   | int    |
++-------------+--------+
+Write a solution to reshape the data so that each row represents sales data for a product in a specific quarter.
+The result format is in the following example.
   Example 1:
-Input: nums = [3,6,9,1]
-Output: 3
-Explanation: The sorted form of the array is [1,3,6,9], either (3,6) or (6,9) has the maximum difference 3.
-Example 2:
-Input: nums = [10]
-Output: 0
-Explanation: The array contains less than 2 elements, therefore return 0.
-  Constraints:
-1 <= nums.length <= 105
-0 <= nums[i] <= 109
+Input:
++-------------+-----------+-----------+-----------+-----------+
+| product     | quarter_1 | quarter_2 | quarter_3 | quarter_4 |
++-------------+-----------+-----------+-----------+-----------+
+| Umbrella    | 417       | 224       | 379       | 611       |
+| SleepingBag | 800       | 936       | 93        | 875       |
++-------------+-----------+-----------+-----------+-----------+
+Output:
++-------------+-----------+-------+
+| product     | quarter   | sales |
++-------------+-----------+-------+
+| Umbrella    | quarter_1 | 417   |
+| SleepingBag | quarter_1 | 800   |
+| Umbrella    | quarter_2 | 224   |
+| SleepingBag | quarter_2 | 936   |
+| Umbrella    | quarter_3 | 379   |
+| SleepingBag | quarter_3 | 93    |
+| Umbrella    | quarter_4 | 611   |
+| SleepingBag | quarter_4 | 875   |
++-------------+-----------+-------+
+Explanation:
+The DataFrame is reshaped from wide to long format. Each row represents the sales of a product in a quarter.

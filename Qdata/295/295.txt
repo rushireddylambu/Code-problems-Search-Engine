@@ -1,30 +1,20 @@
-You are given an integer array coins of length n which represents the n coins that you own. The value of the ith coin is coins[i]. You can make some value x if you can choose some of your n coins such that their values sum up to x.
-Return the maximum number of consecutive integer values that you can make with your coins starting from and including 0.
-Note that you may have multiple coins of the same value.
+You are given a sorted integer array arr containing 1 and prime numbers, where all the integers of arr are unique. You are also given an integer k.
+For every i and j where 0 <= i < j < arr.length, we consider the fraction arr[i] / arr[j].
+Return the kth smallest fraction considered. Return your answer as an array of integers of size 2, where answer[0] == arr[i] and answer[1] == arr[j].
   Example 1:
-Input: coins = [1,3]
-Output: 2
-Explanation: You can make the following values:
-- 0: take []
-- 1: take [1]
-You can make 2 consecutive integer values starting from 0.
+Input: arr = [1,2,3,5], k = 3
+Output: [2,5]
+Explanation: The fractions to be considered in sorted order are:
+1/5, 1/3, 2/5, 1/2, 3/5, and 2/3.
+The third fraction is 2/5.
 Example 2:
-Input: coins = [1,1,1,4]
-Output: 8
-Explanation: You can make the following values:
-- 0: take []
-- 1: take [1]
-- 2: take [1,1]
-- 3: take [1,1,1]
-- 4: take [4]
-- 5: take [4,1]
-- 6: take [4,1,1]
-- 7: take [4,1,1,1]
-You can make 8 consecutive integer values starting from 0.
-Example 3:
-Input: nums = [1,4,10,3,1]
-Output: 20
+Input: arr = [1,7], k = 1
+Output: [1,7]
   Constraints:
-coins.length == n
-1 <= n <= 4 * 104
-1 <= coins[i] <= 4 * 104
+2 <= arr.length <= 1000
+1 <= arr[i] <= 3 * 104
+arr[0] == 1
+arr[i] is a prime number for i > 0.
+All the numbers of arr are unique and sorted in strictly increasing order.
+1 <= k <= arr.length * (arr.length - 1) / 2
+  Follow up: Can you solve the problem with better than O(n2) complexity?

@@ -1,20 +1,16 @@
-You are given a 0-indexed integer array players, where players[i] represents the ability of the ith player. You are also given a 0-indexed integer array trainers, where trainers[j] represents the training capacity of the jth trainer.
-The ith player can match with the jth trainer if the player's ability is less than or equal to the trainer's training capacity. Additionally, the ith player can be matched with at most one trainer, and the jth trainer can be matched with at most one player.
-Return the maximum number of matchings between players and trainers that satisfy these conditions.
+You are given a 0-indexed 2D integer matrix grid of size n * n with values in the range [1, n2]. Each integer appears exactly once except a which appears twice and b which is missing. The task is to find the repeating and missing numbers a and b.
+Return a 0-indexed integer array ans of size 2 where ans[0] equals to a and ans[1] equals to b.
   Example 1:
-Input: players = [4,7,9], trainers = [8,2,5,8]
-Output: 2
-Explanation:
-One of the ways we can form two matchings is as follows:
-- players[0] can be matched with trainers[0] since 4 <= 8.
-- players[1] can be matched with trainers[3] since 7 <= 8.
-It can be proven that 2 is the maximum number of matchings that can be formed.
+Input: grid = [[1,3],[2,2]]
+Output: [2,4]
+Explanation: Number 2 is repeated and number 4 is missing so the answer is [2,4].
 Example 2:
-Input: players = [1,1,1], trainers = [10]
-Output: 1
-Explanation:
-The trainer can be matched with any of the 3 players.
-Each player can only be matched with one trainer, so the maximum answer is 1.
+Input: grid = [[9,1,7],[8,9,2],[3,4,6]]
+Output: [9,5]
+Explanation: Number 9 is repeated and number 5 is missing so the answer is [9,5].
   Constraints:
-1 <= players.length, trainers.length <= 105
-1 <= players[i], trainers[j] <= 109
+2 <= n == grid.length == grid[i].length <= 50
+1 <= grid[i][j] <= n * n
+For all x that 1 <= x <= n * n there is exactly one x that is not equal to any of the grid members.
+For all x that 1 <= x <= n * n there is exactly one x that is equal to exactly two of the grid members.
+For all x that 1 <= x <= n * n except two of them there is exatly one pair of i, j that 0 <= i, j <= n - 1 and grid[i][j] == x.

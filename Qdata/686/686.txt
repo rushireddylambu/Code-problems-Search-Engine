@@ -1,14 +1,21 @@
-You are given an integer array nums.
-You should move each element of nums into one of the two arrays A and B such that A and B are non-empty, and average(A) == average(B).
-Return true if it is possible to achieve that and false otherwise.
-Note that for an array arr, average(arr) is the sum of all the elements of arr over the length of arr.
+The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
+countAndSay(1) = "1"
+countAndSay(n) is the run-length encoding of countAndSay(n - 1).
+Run-length encoding (RLE) is a string compression method that works by replacing consecutive identical characters (repeated 2 or more times) with the concatenation of the character and the number marking the count of the characters (length of the run). For example, to compress the string "3322251" we replace "33" with "23", replace "222" with "32", replace "5" with "15" and replace "1" with "11". Thus the compressed string becomes "23321511".
+Given a positive integer n, return the nth element of the count-and-say sequence.
   Example 1:
-Input: nums = [1,2,3,4,5,6,7,8]
-Output: true
-Explanation: We can split the array into [1,4,5,8] and [2,3,6,7], and both of them have an average of 4.5.
+Input: n = 4
+Output: "1211"
+Explanation:
+countAndSay(1) = "1"
+countAndSay(2) = RLE of "1" = "11"
+countAndSay(3) = RLE of "11" = "21"
+countAndSay(4) = RLE of "21" = "1211"
 Example 2:
-Input: nums = [3,1]
-Output: false
+Input: n = 1
+Output: "1"
+Explanation:
+This is the base case.
   Constraints:
-1 <= nums.length <= 30
-0 <= nums[i] <= 104
+1 <= n <= 30
+  Follow up: Could you solve it iteratively?

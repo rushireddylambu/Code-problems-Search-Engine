@@ -1,16 +1,20 @@
-Given an integer n, return a string array answer (1-indexed) where:
-answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
-answer[i] == "Fizz" if i is divisible by 3.
-answer[i] == "Buzz" if i is divisible by 5.
-answer[i] == i (as a string) if none of the above conditions are true.
+You are given a 0-indexed integer array players, where players[i] represents the ability of the ith player. You are also given a 0-indexed integer array trainers, where trainers[j] represents the training capacity of the jth trainer.
+The ith player can match with the jth trainer if the player's ability is less than or equal to the trainer's training capacity. Additionally, the ith player can be matched with at most one trainer, and the jth trainer can be matched with at most one player.
+Return the maximum number of matchings between players and trainers that satisfy these conditions.
   Example 1:
-Input: n = 3
-Output: ["1","2","Fizz"]
+Input: players = [4,7,9], trainers = [8,2,5,8]
+Output: 2
+Explanation:
+One of the ways we can form two matchings is as follows:
+- players[0] can be matched with trainers[0] since 4 <= 8.
+- players[1] can be matched with trainers[3] since 7 <= 8.
+It can be proven that 2 is the maximum number of matchings that can be formed.
 Example 2:
-Input: n = 5
-Output: ["1","2","Fizz","4","Buzz"]
-Example 3:
-Input: n = 15
-Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
+Input: players = [1,1,1], trainers = [10]
+Output: 1
+Explanation:
+The trainer can be matched with any of the 3 players.
+Each player can only be matched with one trainer, so the maximum answer is 1.
   Constraints:
-1 <= n <= 104
+1 <= players.length, trainers.length <= 105
+1 <= players[i], trainers[j] <= 109

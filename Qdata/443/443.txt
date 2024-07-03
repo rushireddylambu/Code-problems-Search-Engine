@@ -1,21 +1,33 @@
-You are given a string s that consists of lowercase English letters.
-A string is called special if it is made up of only a single character. For example, the string "abc" is not special, whereas the strings "ddd", "zz", and "f" are special.
-Return the length of the longest special substring of s which occurs at least thrice, or -1 if no special substring occurs at least thrice.
-A substring is a contiguous non-empty sequence of characters within a string.
+Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle, and the last position is connected back to the first position to make a circle. It is also called "Ring Buffer".
+One of the benefits of the circular queue is that we can make use of the spaces in front of the queue. In a normal queue, once the queue becomes full, we cannot insert the next element even if there is a space in front of the queue. But using the circular queue, we can use the space to store new values.
+Implement the MyCircularQueue class:
+MyCircularQueue(k) Initializes the object with the size of the queue to be k.
+int Front() Gets the front item from the queue. If the queue is empty, return -1.
+int Rear() Gets the last item from the queue. If the queue is empty, return -1.
+boolean enQueue(int value) Inserts an element into the circular queue. Return true if the operation is successful.
+boolean deQueue() Deletes an element from the circular queue. Return true if the operation is successful.
+boolean isEmpty() Checks whether the circular queue is empty or not.
+boolean isFull() Checks whether the circular queue is full or not.
+You must solve the problem without using the built-in queue data structure in your programming language. 
   Example 1:
-Input: s = "aaaa"
-Output: 2
-Explanation: The longest special substring which occurs thrice is "aa": substrings "aaaa", "aaaa", and "aaaa".
-It can be shown that the maximum length achievable is 2.
-Example 2:
-Input: s = "abcdef"
-Output: -1
-Explanation: There exists no special substring which occurs at least thrice. Hence return -1.
-Example 3:
-Input: s = "abcaba"
-Output: 1
-Explanation: The longest special substring which occurs thrice is "a": substrings "abcaba", "abcaba", and "abcaba".
-It can be shown that the maximum length achievable is 1.
+Input
+["MyCircularQueue", "enQueue", "enQueue", "enQueue", "enQueue", "Rear", "isFull", "deQueue", "enQueue", "Rear"]
+[[3], [1], [2], [3], [4], [], [], [], [4], []]
+Output
+[null, true, true, true, false, 3, true, true, true, 4]
+
+Explanation
+MyCircularQueue myCircularQueue = new MyCircularQueue(3);
+myCircularQueue.enQueue(1); // return True
+myCircularQueue.enQueue(2); // return True
+myCircularQueue.enQueue(3); // return True
+myCircularQueue.enQueue(4); // return False
+myCircularQueue.Rear();     // return 3
+myCircularQueue.isFull();   // return True
+myCircularQueue.deQueue();  // return True
+myCircularQueue.enQueue(4); // return True
+myCircularQueue.Rear();     // return 4
   Constraints:
-3 <= s.length <= 50
-s consists of only lowercase English letters.
+1 <= k <= 1000
+0 <= value <= 1000
+At most 3000 calls will be made to enQueue, deQueue, Front, Rear, isEmpty, and isFull.

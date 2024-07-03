@@ -1,18 +1,26 @@
-You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously.
-Permute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before a character y in order, then x should occur before y in the permuted string.
-Return any permutation of s that satisfies this property.
+You are given an integer array gifts denoting the number of gifts in various piles. Every second, you do the following:
+Choose the pile with the maximum number of gifts.
+If there is more than one pile with the maximum number of gifts, choose any.
+Leave behind the floor of the square root of the number of gifts in the pile. Take the rest of the gifts.
+Return the number of gifts remaining after k seconds.
   Example 1:
-Input: order = "cba", s = "abcd"
-Output: "cbad"
-Explanation: "a", "b", "c" appear in order, so the order of "a", "b", "c" should be "c", "b", and "a".
-Since "d" does not appear in order, it can be at any position in the returned string. "dcba", "cdba", "cbda" are also valid outputs.
+Input: gifts = [25,64,9,4,100], k = 4
+Output: 29
+Explanation: 
+The gifts are taken in the following way:
+- In the first second, the last pile is chosen and 10 gifts are left behind.
+- Then the second pile is chosen and 8 gifts are left behind.
+- After that the first pile is chosen and 5 gifts are left behind.
+- Finally, the last pile is chosen again and 3 gifts are left behind.
+The final remaining gifts are [5,8,9,4,3], so the total number of gifts remaining is 29.
 Example 2:
-Input: order = "bcafg", s = "abcd"
-Output: "bcad"
-Explanation: The characters "b", "c", and "a" from order dictate the order for the characters in s. The character "d" in s does not appear in order, so its position is flexible.
-Following the order of appearance in order, "b", "c", and "a" from s should be arranged as "b", "c", "a". "d" can be placed at any position since it's not in order. The output "bcad" correctly follows this rule. Other arrangements like "bacd" or "bcda" would also be valid, as long as "b", "c", "a" maintain their order.
+Input: gifts = [1,1,1,1], k = 4
+Output: 4
+Explanation: 
+In this case, regardless which pile you choose, you have to leave behind 1 gift in each pile. 
+That is, you can't take any pile with you. 
+So, the total gifts remaining are 4.
   Constraints:
-1 <= order.length <= 26
-1 <= s.length <= 200
-order and s consist of lowercase English letters.
-All the characters of order are unique.
+1 <= gifts.length <= 103
+1 <= gifts[i] <= 109
+1 <= k <= 103

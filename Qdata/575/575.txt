@@ -1,16 +1,24 @@
-You are given a 2D integer array logs where each logs[i] = [birthi, deathi] indicates the birth and death years of the ith person.
-The population of some year x is the number of people alive during that year. The ith person is counted in year x's population if x is in the inclusive range [birthi, deathi - 1]. Note that the person is not counted in the year that they die.
-Return the earliest year with the maximum population.
+Given the root of a binary tree, replace the value of each node in the tree with the sum of all its cousins' values.
+Two nodes of a binary tree are cousins if they have the same depth with different parents.
+Return the root of the modified tree.
+Note that the depth of a node is the number of edges in the path from the root node to it.
   Example 1:
-Input: logs = [[1993,1999],[2000,2010]]
-Output: 1993
-Explanation: The maximum population is 1, and 1993 is the earliest year with this population.
+Input: root = [5,4,9,1,10,null,7]
+Output: [0,0,0,7,7,null,11]
+Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
+- Node with value 5 does not have any cousins so its sum is 0.
+- Node with value 4 does not have any cousins so its sum is 0.
+- Node with value 9 does not have any cousins so its sum is 0.
+- Node with value 1 has a cousin with value 7 so its sum is 7.
+- Node with value 10 has a cousin with value 7 so its sum is 7.
+- Node with value 7 has cousins with values 1 and 10 so its sum is 11.
 Example 2:
-Input: logs = [[1950,1961],[1960,1971],[1970,1981]]
-Output: 1960
-Explanation: 
-The maximum population is 2, and it had happened in years 1960 and 1970.
-The earlier year between them is 1960.
+Input: root = [3,1,2]
+Output: [0,0,0]
+Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
+- Node with value 3 does not have any cousins so its sum is 0.
+- Node with value 1 does not have any cousins so its sum is 0.
+- Node with value 2 does not have any cousins so its sum is 0.
   Constraints:
-1 <= logs.length <= 100
-1950 <= birthi < deathi <= 2050
+The number of nodes in the tree is in the range [1, 105].
+1 <= Node.val <= 104

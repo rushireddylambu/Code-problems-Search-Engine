@@ -1,14 +1,13 @@
-Given a string s and an integer k, return the length of the longest substring of s such that the frequency of each character in this substring is greater than or equal to k.
-if no such substring exists, return 0.
+Given the head of a singly linked list, return the middle node of the linked list.
+If there are two middle nodes, return the second middle node.
   Example 1:
-Input: s = "aaabb", k = 3
-Output: 3
-Explanation: The longest substring is "aaa", as 'a' is repeated 3 times.
+Input: head = [1,2,3,4,5]
+Output: [3,4,5]
+Explanation: The middle node of the list is node 3.
 Example 2:
-Input: s = "ababbc", k = 2
-Output: 5
-Explanation: The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.
+Input: head = [1,2,3,4,5,6]
+Output: [4,5,6]
+Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
   Constraints:
-1 <= s.length <= 104
-s consists of only lowercase English letters.
-1 <= k <= 105
+The number of nodes in the list is in the range [1, 100].
+1 <= Node.val <= 100

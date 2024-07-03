@@ -1,19 +1,16 @@
-You are given an n x n grid where we place some 1 x 1 x 1 cubes that are axis-aligned with the x, y, and z axes.
-Each value v = grid[i][j] represents a tower of v cubes placed on top of the cell (i, j).
-We view the projection of these cubes onto the xy, yz, and zx planes.
-A projection is like a shadow, that maps our 3-dimensional figure to a 2-dimensional plane. We are viewing the "shadow" when looking at the cubes from the top, the front, and the side.
-Return the total area of all three projections.
+You are given an integer n, the number of nodes in a directed graph where the nodes are labeled from 0 to n - 1. Each edge is red or blue in this graph, and there could be self-edges and parallel edges.
+You are given two arrays redEdges and blueEdges where:
+redEdges[i] = [ai, bi] indicates that there is a directed red edge from node ai to node bi in the graph, and
+blueEdges[j] = [uj, vj] indicates that there is a directed blue edge from node uj to node vj in the graph.
+Return an array answer of length n, where each answer[x] is the length of the shortest path from node 0 to node x such that the edge colors alternate along the path, or -1 if such a path does not exist.
   Example 1:
-Input: grid = [[1,2],[3,4]]
-Output: 17
-Explanation: Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
+Input: n = 3, redEdges = [[0,1],[1,2]], blueEdges = []
+Output: [0,1,-1]
 Example 2:
-Input: grid = [[2]]
-Output: 5
-Example 3:
-Input: grid = [[1,0],[0,2]]
-Output: 8
+Input: n = 3, redEdges = [[0,1]], blueEdges = [[2,1]]
+Output: [0,1,-1]
   Constraints:
-n == grid.length == grid[i].length
-1 <= n <= 50
-0 <= grid[i][j] <= 50
+1 <= n <= 100
+0 <= redEdges.length, blueEdges.length <= 400
+redEdges[i].length == blueEdges[j].length == 2
+0 <= ai, bi, uj, vj < n

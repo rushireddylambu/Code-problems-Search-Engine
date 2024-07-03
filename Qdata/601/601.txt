@@ -1,16 +1,33 @@
-We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.
-Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
-A subsequence of array is a sequence that can be derived from the array by deleting some or no elements without changing the order of the remaining elements.
+Given an array of asynchronous functions functions, return a new promise promise. Each function in the array accepts no arguments and returns a promise. All the promises should be executed in parallel.
+promise resolves:
+When all the promises returned from functions were resolved successfully in parallel. The resolved value of promise should be an array of all the resolved values of promises in the same order as they were in the functions. The promise should resolve when all the asynchronous functions in the array have completed execution in parallel.
+promise rejects:
+When any of the promises returned from functions were rejected. promise should also reject with the reason of the first rejection.
+Please solve it without using the built-in Promise.all function.
   Example 1:
-Input: nums = [1,3,2,2,5,2,3,7]
-Output: 5
-Explanation: The longest harmonious subsequence is [3,2,2,2,3].
+Input: functions = [
+  () => new Promise(resolve => setTimeout(() => resolve(5), 200))
+]
+Output: {"t": 200, "resolved": [5]}
+Explanation: 
+promiseAll(functions).then(console.log); // [5]
+
+The single function was resolved at 200ms with a value of 5.
 Example 2:
-Input: nums = [1,2,3,4]
-Output: 2
+Input: functions = [
+    () => new Promise(resolve => setTimeout(() => resolve(1), 200)), 
+    () => new Promise((resolve, reject) => setTimeout(() => reject("Error"), 100))
+]
+Output: {"t": 100, "rejected": "Error"}
+Explanation: Since one of the promises rejected, the returned promise also rejected with the same error at the same time.
 Example 3:
-Input: nums = [1,1,1,1]
-Output: 0
+Input: functions = [
+    () => new Promise(resolve => setTimeout(() => resolve(4), 50)), 
+    () => new Promise(resolve => setTimeout(() => resolve(10), 150)), 
+    () => new Promise(resolve => setTimeout(() => resolve(16), 100))
+]
+Output: {"t": 150, "resolved": [4, 10, 16]}
+Explanation: All the promises resolved with a value. The returned promise resolved when the last promise resolved.
   Constraints:
-1 <= nums.length <= 2 * 104
--109 <= nums[i] <= 109
+functions is an array of functions that returns promises
+1 <= functions.length <= 10

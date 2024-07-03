@@ -1,26 +1,26 @@
-A teacher is writing a test with n true/false questions, with 'T' denoting true and 'F' denoting false. He wants to confuse the students by maximizing the number of consecutive questions with the same answer (multiple trues or multiple falses in a row).
-You are given a string answerKey, where answerKey[i] is the original answer to the ith question. In addition, you are given an integer k, the maximum number of times you may perform the following operation:
-Change the answer key for any question to 'T' or 'F' (i.e., set answerKey[i] to 'T' or 'F').
-Return the maximum number of consecutive 'T's or 'F's in the answer key after performing the operation at most k times.
+Given an integer array num sorted in non-decreasing order.
+You can perform the following operation any number of times:
+Choose two indices, i and j, where nums[i] < nums[j].
+Then, remove the elements at indices i and j from nums. The remaining elements retain their original order, and the array is re-indexed.
+Return the minimum length of nums after applying the operation zero or more times.
   Example 1:
-Input: answerKey = "TTFF", k = 2
-Output: 4
-Explanation: We can replace both the 'F's with 'T's to make answerKey = "TTTT".
-There are four consecutive 'T's.
+Input: nums = [1,2,3,4]
+Output: 0
+Explanation:
 Example 2:
-Input: answerKey = "TFFT", k = 1
-Output: 3
-Explanation: We can replace the first 'T' with an 'F' to make answerKey = "FFFT".
-Alternatively, we can replace the second 'T' with an 'F' to make answerKey = "TFFF".
-In both cases, there are three consecutive 'F's.
+Input: nums = [1,1,2,2,3,3]
+Output: 0
+Explanation:
 Example 3:
-Input: answerKey = "TTFTTFTT", k = 1
-Output: 5
-Explanation: We can replace the first 'F' to make answerKey = "TTTTTFTT"
-Alternatively, we can replace the second 'F' to make answerKey = "TTFTTTTT". 
-In both cases, there are five consecutive 'T's.
+Input: nums = [1000000000,1000000000]
+Output: 2
+Explanation:
+Since both numbers are equal, they cannot be removed.
+Example 4:
+Input: nums = [2,3,4,4,4]
+Output: 1
+Explanation:
   Constraints:
-n == answerKey.length
-1 <= n <= 5 * 104
-answerKey[i] is either 'T' or 'F'
-1 <= k <= n
+1 <= nums.length <= 105
+1 <= nums[i] <= 109
+nums is sorted in non-decreasing order.

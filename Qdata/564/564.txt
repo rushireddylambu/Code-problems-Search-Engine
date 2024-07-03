@@ -1,12 +1,20 @@
-Given an integer n, return the least number of perfect square numbers that sum to n.
-A perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, 1, 4, 9, and 16 are perfect squares while 3 and 11 are not.
+You are given two positive integer arrays nums and numsDivide. You can delete any number of elements from nums.
+Return the minimum number of deletions such that the smallest element in nums divides all the elements of numsDivide. If this is not possible, return -1.
+Note that an integer x divides y if y % x == 0.
   Example 1:
-Input: n = 12
-Output: 3
-Explanation: 12 = 4 + 4 + 4.
-Example 2:
-Input: n = 13
+Input: nums = [2,3,2,4,3], numsDivide = [9,6,9,3,15]
 Output: 2
-Explanation: 13 = 4 + 9.
+Explanation: 
+The smallest element in [2,3,2,4,3] is 2, which does not divide all the elements of numsDivide.
+We use 2 deletions to delete the elements in nums that are equal to 2 which makes nums = [3,4,3].
+The smallest element in [3,4,3] is 3, which divides all the elements of numsDivide.
+It can be shown that 2 is the minimum number of deletions needed.
+Example 2:
+Input: nums = [4,3,6], numsDivide = [8,2,6,10]
+Output: -1
+Explanation: 
+We want the smallest element in nums to divide all the elements of numsDivide.
+There is no way to delete elements from nums to allow this.
   Constraints:
-1 <= n <= 104
+1 <= nums.length, numsDivide.length <= 105
+1 <= nums[i], numsDivide[i] <= 109

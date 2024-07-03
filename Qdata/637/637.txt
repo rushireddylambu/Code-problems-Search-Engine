@@ -1,30 +1,17 @@
-Given a string s consisting of lowercase English letters. Perform the following operation:
-Select any non-empty
-substring
-then replace every letter of the substring with the preceding letter of the English alphabet. For example, 'b' is converted to 'a', and 'a' is converted to 'z'.
-Return the
-lexicographically smallest
-string after performing the operation.
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+You may assume that you have an infinite number of each kind of coin.
   Example 1:
-Input: s = "cbabc"
-Output: "baabc"
-Explanation:
-Perform the operation on the substring starting at index 0, and ending at index 1 inclusive.
+Input: coins = [1,2,5], amount = 11
+Output: 3
+Explanation: 11 = 5 + 5 + 1
 Example 2:
-Input: s = "aa"
-Output: "az"
-Explanation:
-Perform the operation on the last letter.
+Input: coins = [2], amount = 3
+Output: -1
 Example 3:
-Input: s = "acbbc"
-Output: "abaab"
-Explanation:
-Perform the operation on the substring starting at index 1, and ending at index 4 inclusive.
-Example 4:
-Input: s = "leetcode"
-Output: "kddsbncd"
-Explanation:
-Perform the operation on the entire string.
+Input: coins = [1], amount = 0
+Output: 0
   Constraints:
-1 <= s.length <= 3 * 105
-s consists of lowercase English letters
+1 <= coins.length <= 12
+1 <= coins[i] <= 231 - 1
+0 <= amount <= 104

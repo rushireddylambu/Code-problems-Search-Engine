@@ -1,19 +1,16 @@
-You are given a positive integer n.
-Continuously replace n with the sum of its prime factors.
-Note that if a prime factor divides n multiple times, it should be included in the sum as many times as it divides n.
-Return the smallest value n will take on.
+You are given an m x n binary matrix grid.
+A move consists of choosing any row or column and toggling each value in that row or column (i.e., changing all 0's to 1's, and all 1's to 0's).
+Every row of the matrix is interpreted as a binary number, and the score of the matrix is the sum of these numbers.
+Return the highest possible score after making any number of moves (including zero moves).
   Example 1:
-Input: n = 15
-Output: 5
-Explanation: Initially, n = 15.
-15 = 3 * 5, so replace n with 3 + 5 = 8.
-8 = 2 * 2 * 2, so replace n with 2 + 2 + 2 = 6.
-6 = 2 * 3, so replace n with 2 + 3 = 5.
-5 is the smallest value n will take on.
+Input: grid = [[0,0,1,1],[1,0,1,0],[1,1,0,0]]
+Output: 39
+Explanation: 0b1111 + 0b1001 + 0b1111 = 15 + 9 + 15 = 39
 Example 2:
-Input: n = 3
-Output: 3
-Explanation: Initially, n = 3.
-3 is the smallest value n will take on.
+Input: grid = [[0]]
+Output: 1
   Constraints:
-2 <= n <= 105
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 20
+grid[i][j] is either 0 or 1.

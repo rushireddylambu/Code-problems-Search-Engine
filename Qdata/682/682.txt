@@ -1,17 +1,19 @@
-You are given two integers numBottles and numExchange.
-numBottles represents the number of full water bottles that you initially have. In one operation, you can perform one of the following operations:
-Drink any number of full water bottles turning them into empty bottles.
-Exchange numExchange empty bottles with one full water bottle. Then, increase numExchange by one.
-Note that you cannot exchange multiple batches of empty bottles for the same value of numExchange. For example, if numBottles == 3 and numExchange == 1, you cannot exchange 3 empty water bottles for 3 full bottles.
-Return the maximum number of water bottles you can drink.
+You are given an n x n grid where we place some 1 x 1 x 1 cubes that are axis-aligned with the x, y, and z axes.
+Each value v = grid[i][j] represents a tower of v cubes placed on top of the cell (i, j).
+We view the projection of these cubes onto the xy, yz, and zx planes.
+A projection is like a shadow, that maps our 3-dimensional figure to a 2-dimensional plane. We are viewing the "shadow" when looking at the cubes from the top, the front, and the side.
+Return the total area of all three projections.
   Example 1:
-Input: numBottles = 13, numExchange = 6
-Output: 15
-Explanation: The table above shows the number of full water bottles, empty water bottles, the value of numExchange, and the number of bottles drunk.
+Input: grid = [[1,2],[3,4]]
+Output: 17
+Explanation: Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
 Example 2:
-Input: numBottles = 10, numExchange = 3
-Output: 13
-Explanation: The table above shows the number of full water bottles, empty water bottles, the value of numExchange, and the number of bottles drunk.
+Input: grid = [[2]]
+Output: 5
+Example 3:
+Input: grid = [[1,0],[0,2]]
+Output: 8
   Constraints:
-1 <= numBottles <= 100 
-1 <= numExchange <= 100
+n == grid.length == grid[i].length
+1 <= n <= 50
+0 <= grid[i][j] <= 50

@@ -1,17 +1,15 @@
-Given an array of strings words and an integer k, return the k most frequent strings.
-Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
+Alice and Bob continue their games with piles of stones.  There are a number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].  The objective of the game is to end with the most stones. 
+Alice and Bob take turns, with Alice starting first.  Initially, M = 1.
+On each player's turn, that player can take all the stones in the first X remaining piles, where 1 <= X <= 2M.  Then, we set M = max(M, X).
+The game continues until all the stones have been taken.
+Assuming Alice and Bob play optimally, return the maximum number of stones Alice can get.
   Example 1:
-Input: words = ["i","love","leetcode","i","love","coding"], k = 2
-Output: ["i","love"]
-Explanation: "i" and "love" are the two most frequent words.
-Note that "i" comes before "love" due to a lower alphabetical order.
+Input: piles = [2,7,9,4,4]
+Output: 10
+Explanation:  If Alice takes one pile at the beginning, Bob takes two piles, then Alice takes 2 piles again. Alice can get 2 + 4 + 4 = 10 piles in total. If Alice takes two piles at the beginning, then Bob can take all three piles left. In this case, Alice get 2 + 7 = 9 piles in total. So we return 10 since it's larger. 
 Example 2:
-Input: words = ["the","day","is","sunny","the","the","the","sunny","is","is"], k = 4
-Output: ["the","is","sunny","day"]
-Explanation: "the", "is", "sunny" and "day" are the four most frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively.
+Input: piles = [1,2,3,4,5,100]
+Output: 104
   Constraints:
-1 <= words.length <= 500
-1 <= words[i].length <= 10
-words[i] consists of lowercase English letters.
-k is in the range [1, The number of unique words[i]]
-  Follow-up: Could you solve it in O(n log(k)) time and O(n) extra space?
+1 <= piles.length <= 100
+1 <= piles[i] <= 104

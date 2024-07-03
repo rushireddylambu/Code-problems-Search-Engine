@@ -1,14 +1,25 @@
-Given the root of a binary tree, split the binary tree into two subtrees by removing one edge such that the product of the sums of the subtrees is maximized.
-Return the maximum product of the sums of the two subtrees. Since the answer may be too large, return it modulo 109 + 7.
-Note that you need to maximize the answer before taking the mod and not after taking it.
+You are given an array of n integers, nums, where there are at most 50 unique values in the array. You are also given an array of m customer order quantities, quantity, where quantity[i] is the amount of integers the ith customer ordered. Determine if it is possible to distribute nums such that:
+The ith customer gets exactly quantity[i] integers,
+The integers the ith customer gets are all equal, and
+Every customer is satisfied.
+Return true if it is possible to distribute nums according to the above conditions.
   Example 1:
-Input: root = [1,2,3,4,5,6]
-Output: 110
-Explanation: Remove the red edge and get 2 binary trees with sum 11 and 10. Their product is 110 (11*10)
+Input: nums = [1,2,3,4], quantity = [2]
+Output: false
+Explanation: The 0th customer cannot be given two different integers.
 Example 2:
-Input: root = [1,null,2,3,4,null,null,5,6]
-Output: 90
-Explanation: Remove the red edge and get 2 binary trees with sum 15 and 6.Their product is 90 (15*6)
+Input: nums = [1,2,3,3], quantity = [2]
+Output: true
+Explanation: The 0th customer is given [3,3]. The integers [1,2] are not used.
+Example 3:
+Input: nums = [1,1,2,2], quantity = [2,2]
+Output: true
+Explanation: The 0th customer is given [1,1], and the 1st customer is given [2,2].
   Constraints:
-The number of nodes in the tree is in the range [2, 5 * 104].
-1 <= Node.val <= 104
+n == nums.length
+1 <= n <= 105
+1 <= nums[i] <= 1000
+m == quantity.length
+1 <= m <= 10
+1 <= quantity[i] <= 105
+There are at most 50 unique values in nums.

@@ -1,27 +1,18 @@
-Tic-tac-toe is played by two players A and B on a 3 x 3 grid. The rules of Tic-Tac-Toe are:
-Players take turns placing characters into empty squares ' '.
-The first player A always places 'X' characters, while the second player B always places 'O' characters.
-'X' and 'O' characters are always placed into empty squares, never on filled ones.
-The game ends when there are three of the same (non-empty) character filling any row, column, or diagonal.
-The game also ends if all squares are non-empty.
-No more moves can be played if the game is over.
-Given a 2D integer array moves where moves[i] = [rowi, coli] indicates that the ith move will be played on grid[rowi][coli]. return the winner of the game if it exists (A or B). In case the game ends in a draw return "Draw". If there are still movements to play return "Pending".
-You can assume that moves is valid (i.e., it follows the rules of Tic-Tac-Toe), the grid is initially empty, and A will play first.
+You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==yi" or "xi!=yi".Here, xi and yi are lowercase letters (not necessarily different) that represent one-letter variable names.
+Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
   Example 1:
-Input: moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
-Output: "A"
-Explanation: A wins, they always play first.
+Input: equations = ["a==b","b!=a"]
+Output: false
+Explanation: If we assign say, a = 1 and b = 1, then the first equation is satisfied, but not the second.
+There is no way to assign the variables to satisfy both equations.
 Example 2:
-Input: moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
-Output: "B"
-Explanation: B wins.
-Example 3:
-Input: moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
-Output: "Draw"
-Explanation: The game ends in a draw since there are no moves to make.
+Input: equations = ["b==a","a==b"]
+Output: true
+Explanation: We could assign a = 1 and b = 1 to satisfy both equations.
   Constraints:
-1 <= moves.length <= 9
-moves[i].length == 2
-0 <= rowi, coli <= 2
-There are no repeated elements on moves.
-moves follow the rules of tic tac toe.
+1 <= equations.length <= 500
+equations[i].length == 4
+equations[i][0] is a lowercase letter.
+equations[i][1] is either '=' or '!'.
+equations[i][2] is '='.
+equations[i][3] is a lowercase letter.

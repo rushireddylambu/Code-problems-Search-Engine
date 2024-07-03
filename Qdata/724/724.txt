@@ -1,26 +1,31 @@
-A sentence consists of lowercase letters ('a' to 'z'), digits ('0' to '9'), hyphens ('-'), punctuation marks ('!', '.', and ','), and spaces (' ') only. Each sentence can be broken down into one or more tokens separated by one or more spaces ' '.
-A token is a valid word if all three of the following are true:
-It only contains lowercase letters, hyphens, and/or punctuation (no digits).
-There is at most one hyphen '-'. If present, it must be surrounded by lowercase characters ("a-b" is valid, but "-ab" and "ab-" are not valid).
-There is at most one punctuation mark. If present, it must be at the end of the token ("ab,", "cd!", and "." are valid, but "a!b" and "c.," are not valid).
-Examples of valid words include "a-b.", "afad", "ba-c", "a!", and "!".
-Given a string sentence, return the number of valid words in sentence.
+You are given an m x n integer matrix mat and an integer target.
+Choose one integer from each row in the matrix such that the absolute difference between target and the sum of the chosen elements is minimized.
+Return the minimum absolute difference.
+The absolute difference between two numbers a and b is the absolute value of a - b.
   Example 1:
-Input: sentence = "cat and  dog"
-Output: 3
-Explanation: The valid words in the sentence are "cat", "and", and "dog".
-Example 2:
-Input: sentence = "!this  1-s b8d!"
+Input: mat = [[1,2,3],[4,5,6],[7,8,9]], target = 13
 Output: 0
-Explanation: There are no valid words in the sentence.
-"!this" is invalid because it starts with a punctuation mark.
-"1-s" and "b8d" are invalid because they contain digits.
+Explanation: One possible choice is to:
+- Choose 1 from the first row.
+- Choose 5 from the second row.
+- Choose 7 from the third row.
+The sum of the chosen elements is 13, which equals the target, so the absolute difference is 0.
+Example 2:
+Input: mat = [[1],[2],[3]], target = 100
+Output: 94
+Explanation: The best possible choice is to:
+- Choose 1 from the first row.
+- Choose 2 from the second row.
+- Choose 3 from the third row.
+The sum of the chosen elements is 6, and the absolute difference is 94.
 Example 3:
-Input: sentence = "alice and  bob are playing stone-game10"
-Output: 5
-Explanation: The valid words in the sentence are "alice", "and", "bob", "are", and "playing".
-"stone-game10" is invalid because it contains digits.
+Input: mat = [[1,2,9,8,7]], target = 6
+Output: 1
+Explanation: The best choice is to choose 7 from the first row.
+The absolute difference is 1.
   Constraints:
-1 <= sentence.length <= 1000
-sentence only contains lowercase English letters, digits, ' ', '-', '!', '.', and ','.
-There will be at least 1 token.
+m == mat.length
+n == mat[i].length
+1 <= m, n <= 70
+1 <= mat[i][j] <= 70
+1 <= target <= 800

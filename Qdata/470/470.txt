@@ -1,31 +1,23 @@
-In a gold mine grid of size m x n, each cell in this mine has an integer representing the amount of gold in that cell, 0 if it is empty.
-Return the maximum amount of gold you can collect under the conditions:
-Every time you are located in a cell you will collect all the gold in that cell.
-From your position, you can walk one step to the left, right, up, or down.
-You can't visit the same cell more than once.
-Never visit a cell with 0 gold.
-You can start and stop collecting gold from any position in the grid that has some gold.
+You are given a binary string binary. A subsequence of binary is considered good if it is not empty and has no leading zeros (with the exception of "0").
+Find the number of unique good subsequences of binary.
+For example, if binary = "001", then all the good subsequences are ["0", "0", "1"], so the unique good subsequences are "0" and "1". Note that subsequences "00", "01", and "001" are not good because they have leading zeros.
+Return the number of unique good subsequences of binary. Since the answer may be very large, return it modulo 109 + 7.
+A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
   Example 1:
-Input: grid = [[0,6,0],[5,8,7],[0,9,0]]
-Output: 24
-Explanation:
-[[0,6,0],
- [5,8,7],
- [0,9,0]]
-Path to get the maximum gold, 9 -> 8 -> 7.
+Input: binary = "001"
+Output: 2
+Explanation: The good subsequences of binary are ["0", "0", "1"].
+The unique good subsequences are "0" and "1".
 Example 2:
-Input: grid = [[1,0,7],[2,0,6],[3,4,5],[0,3,0],[9,0,20]]
-Output: 28
-Explanation:
-[[1,0,7],
- [2,0,6],
- [3,4,5],
- [0,3,0],
- [9,0,20]]
-Path to get the maximum gold, 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7.
+Input: binary = "11"
+Output: 2
+Explanation: The good subsequences of binary are ["1", "1", "11"].
+The unique good subsequences are "1" and "11".
+Example 3:
+Input: binary = "101"
+Output: 5
+Explanation: The good subsequences of binary are ["1", "0", "1", "10", "11", "101"]. 
+The unique good subsequences are "0", "1", "10", "11", and "101".
   Constraints:
-m == grid.length
-n == grid[i].length
-1 <= m, n <= 15
-0 <= grid[i][j] <= 100
-There are at most 25 cells containing gold.
+1 <= binary.length <= 105
+binary consists of only '0's and '1's.

@@ -1,15 +1,13 @@
-Given an array nums of integers, a move consists of choosing any element and decreasing it by 1.
-An array A is a zigzag array if either:
-Every even-indexed element is greater than adjacent elements, ie. A[0] > A[1] < A[2] > A[3] < A[4] > ...
-OR, every odd-indexed element is greater than adjacent elements, ie. A[0] < A[1] > A[2] < A[3] > A[4] < ...
-Return the minimum number of moves to transform the given array nums into a zigzag array.
+An integer divisible by the sum of its digits is said to be a Harshad number. You are given an integer x. Return the sum of the digits of x if x is a Harshad number, otherwise, return -1.
   Example 1:
-Input: nums = [1,2,3]
-Output: 2
-Explanation: We can decrease 2 to 0 or 3 to 1.
+Input: x = 18
+Output: 9
+Explanation:
+The sum of digits of x is 9. 18 is divisible by 9. So 18 is a Harshad number and the answer is 9.
 Example 2:
-Input: nums = [9,6,1,6,2]
-Output: 4
+Input: x = 23
+Output: -1
+Explanation:
+The sum of digits of x is 5. 23 is not divisible by 5. So 23 is not a Harshad number and the answer is -1.
   Constraints:
-1 <= nums.length <= 1000
-1 <= nums[i] <= 1000
+1 <= x <= 100

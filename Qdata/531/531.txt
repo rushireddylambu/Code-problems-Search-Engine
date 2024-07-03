@@ -1,33 +1,21 @@
-A concert hall has n rows numbered from 0 to n - 1, each with m seats, numbered from 0 to m - 1. You need to design a ticketing system that can allocate seats in the following cases:
-If a group of k spectators can sit together in a row.
-If every member of a group of k spectators can get a seat. They may or may not sit together.
-Note that the spectators are very picky. Hence:
-They will book seats only if each member of their group can get a seat with row number less than or equal to maxRow. maxRow can vary from group to group.
-In case there are multiple rows to choose from, the row with the smallest number is chosen. If there are multiple seats to choose in the same row, the seat with the smallest number is chosen.
-Implement the BookMyShow class:
-BookMyShow(int n, int m) Initializes the object with n as number of rows and m as number of seats per row.
-int[] gather(int k, int maxRow) Returns an array of length 2 denoting the row and seat number (respectively) of the first seat being allocated to the k members of the group, who must sit together. In other words, it returns the smallest possible r and c such that all [c, c + k - 1] seats are valid and empty in row r, and r <= maxRow. Returns [] in case it is not possible to allocate seats to the group.
-boolean scatter(int k, int maxRow) Returns true if all k members of the group can be allocated seats in rows 0 to maxRow, who may or may not sit together. If the seats can be allocated, it allocates k seats to the group with the smallest row numbers, and the smallest possible seat numbers in each row. Otherwise, returns false.
+You are given k identical eggs and you have access to a building with n floors labeled from 1 to n.
+You know that there exists a floor f where 0 <= f <= n such that any egg dropped at a floor higher than f will break, and any egg dropped at or below floor f will not break.
+Each move, you may take an unbroken egg and drop it from any floor x (where 1 <= x <= n). If the egg breaks, you can no longer use it. However, if the egg does not break, you may reuse it in future moves.
+Return the minimum number of moves that you need to determine with certainty what the value of f is.
   Example 1:
-Input
-["BookMyShow", "gather", "gather", "scatter", "scatter"]
-[[2, 5], [4, 0], [2, 0], [5, 1], [5, 1]]
-Output
-[null, [0, 0], [], true, false]
-
-Explanation
-BookMyShow bms = new BookMyShow(2, 5); // There are 2 rows with 5 seats each 
-bms.gather(4, 0); // return [0, 0]
-                  // The group books seats [0, 3] of row 0. 
-bms.gather(2, 0); // return []
-                  // There is only 1 seat left in row 0,
-                  // so it is not possible to book 2 consecutive seats. 
-bms.scatter(5, 1); // return True
-                   // The group books seat 4 of row 0 and seats [0, 3] of row 1. 
-bms.scatter(5, 1); // return False
-                   // There is only one seat left in the hall.
+Input: k = 1, n = 2
+Output: 2
+Explanation: 
+Drop the egg from floor 1. If it breaks, we know that f = 0.
+Otherwise, drop the egg from floor 2. If it breaks, we know that f = 1.
+If it does not break, then we know f = 2.
+Hence, we need at minimum 2 moves to determine with certainty what the value of f is.
+Example 2:
+Input: k = 2, n = 6
+Output: 3
+Example 3:
+Input: k = 3, n = 14
+Output: 4
   Constraints:
-1 <= n <= 5 * 104
-1 <= m, k <= 109
-0 <= maxRow <= n - 1
-At most 5 * 104 calls in total will be made to gather and scatter.
+1 <= k <= 100
+1 <= n <= 104

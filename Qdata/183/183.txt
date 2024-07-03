@@ -1,17 +1,18 @@
-Given a string s, return the number of distinct non-empty subsequences of s. Since the answer may be very large, return it modulo 109 + 7.
-A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not.
+You are given a 0-indexed binary string s and two integers minJump and maxJump. In the beginning, you are standing at index 0, which is equal to '0'. You can move from index i to index j if the following conditions are fulfilled:
+i + minJump <= j <= min(i + maxJump, s.length - 1), and
+s[j] == '0'.
+Return true if you can reach index s.length - 1 in s, or false otherwise.
   Example 1:
-Input: s = "abc"
-Output: 7
-Explanation: The 7 distinct subsequences are "a", "b", "c", "ab", "ac", "bc", and "abc".
+Input: s = "011010", minJump = 2, maxJump = 3
+Output: true
+Explanation:
+In the first step, move from index 0 to index 3. 
+In the second step, move from index 3 to index 5.
 Example 2:
-Input: s = "aba"
-Output: 6
-Explanation: The 6 distinct subsequences are "a", "b", "ab", "aa", "ba", and "aba".
-Example 3:
-Input: s = "aaa"
-Output: 3
-Explanation: The 3 distinct subsequences are "a", "aa" and "aaa".
+Input: s = "01101110", minJump = 2, maxJump = 3
+Output: false
   Constraints:
-1 <= s.length <= 2000
-s consists of lowercase English letters.
+2 <= s.length <= 105
+s[i] is either '0' or '1'.
+s[0] == '0'
+1 <= minJump <= maxJump < s.length

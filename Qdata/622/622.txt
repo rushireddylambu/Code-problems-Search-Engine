@@ -1,16 +1,14 @@
-There are n cars traveling at different speeds in the same direction along a one-lane road. You are given an array cars of length n, where cars[i] = [positioni, speedi] represents:
-positioni is the distance between the ith car and the beginning of the road in meters. It is guaranteed that positioni < positioni+1.
-speedi is the initial speed of the ith car in meters per second.
-For simplicity, cars can be considered as points moving along the number line. Two cars collide when they occupy the same position. Once a car collides with another car, they unite and form a single car fleet. The cars in the formed fleet will have the same position and the same speed, which is the initial speed of the slowest car in the fleet.
-Return an array answer, where answer[i] is the time, in seconds, at which the ith car collides with the next car, or -1 if the car does not collide with the next car. Answers within 10-5 of the actual answers are accepted.
+Given the root of a binary tree, split the binary tree into two subtrees by removing one edge such that the product of the sums of the subtrees is maximized.
+Return the maximum product of the sums of the two subtrees. Since the answer may be too large, return it modulo 109 + 7.
+Note that you need to maximize the answer before taking the mod and not after taking it.
   Example 1:
-Input: cars = [[1,2],[2,1],[4,3],[7,2]]
-Output: [1.00000,-1.00000,3.00000,-1.00000]
-Explanation: After exactly one second, the first car will collide with the second car, and form a car fleet with speed 1 m/s. After exactly 3 seconds, the third car will collide with the fourth car, and form a car fleet with speed 2 m/s.
+Input: root = [1,2,3,4,5,6]
+Output: 110
+Explanation: Remove the red edge and get 2 binary trees with sum 11 and 10. Their product is 110 (11*10)
 Example 2:
-Input: cars = [[3,4],[5,4],[6,3],[9,1]]
-Output: [2.00000,1.00000,1.50000,-1.00000]
+Input: root = [1,null,2,3,4,null,null,5,6]
+Output: 90
+Explanation: Remove the red edge and get 2 binary trees with sum 15 and 6.Their product is 90 (15*6)
   Constraints:
-1 <= cars.length <= 105
-1 <= positioni, speedi <= 106
-positioni < positioni+1
+The number of nodes in the tree is in the range [2, 5 * 104].
+1 <= Node.val <= 104

@@ -1,25 +1,22 @@
-You are given a string s and an integer repeatLimit. Construct a new string repeatLimitedString using the characters of s such that no letter appears more than repeatLimit times in a row. You do not have to use all characters from s.
-Return the lexicographically largest repeatLimitedString possible.
-A string a is lexicographically larger than a string b if in the first position where a and b differ, string a has a letter that appears later in the alphabet than the corresponding letter in b. If the first min(a.length, b.length) characters do not differ, then the longer string is the lexicographically larger one.
+A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return the skyline formed by these buildings collectively.
+The geometric information of each building is given in the array buildings where buildings[i] = [lefti, righti, heighti]:
+lefti is the x coordinate of the left edge of the ith building.
+righti is the x coordinate of the right edge of the ith building.
+heighti is the height of the ith building.
+You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.
+The skyline should be represented as a list of "key points" sorted by their x-coordinate in the form [[x1,y1],[x2,y2],...]. Each key point is the left endpoint of some horizontal segment in the skyline except the last point in the list, which always has a y-coordinate 0 and is used to mark the skyline's termination where the rightmost building ends. Any ground between the leftmost and rightmost buildings should be part of the skyline's contour.
+Note: There must be no consecutive horizontal lines of equal height in the output skyline. For instance, [...,[2 3],[4 5],[7 5],[11 5],[12 7],...] is not acceptable; the three lines of height 5 should be merged into one in the final output as such: [...,[2 3],[4 5],[12 7],...]
   Example 1:
-Input: s = "cczazcc", repeatLimit = 3
-Output: "zzcccac"
-Explanation: We use all of the characters from s to construct the repeatLimitedString "zzcccac".
-The letter 'a' appears at most 1 time in a row.
-The letter 'c' appears at most 3 times in a row.
-The letter 'z' appears at most 2 times in a row.
-Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
-The string is the lexicographically largest repeatLimitedString possible so we return "zzcccac".
-Note that the string "zzcccca" is lexicographically larger but the letter 'c' appears more than 3 times in a row, so it is not a valid repeatLimitedString.
+Input: buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]
+Output: [[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]
+Explanation:
+Figure A shows the buildings of the input.
+Figure B shows the skyline formed by those buildings. The red points in figure B represent the key points in the output list.
 Example 2:
-Input: s = "aababab", repeatLimit = 2
-Output: "bbabaa"
-Explanation: We use only some of the characters from s to construct the repeatLimitedString "bbabaa". 
-The letter 'a' appears at most 2 times in a row.
-The letter 'b' appears at most 2 times in a row.
-Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
-The string is the lexicographically largest repeatLimitedString possible so we return "bbabaa".
-Note that the string "bbabaaa" is lexicographically larger but the letter 'a' appears more than 2 times in a row, so it is not a valid repeatLimitedString.
+Input: buildings = [[0,2,3],[2,5,3]]
+Output: [[0,3],[5,0]]
   Constraints:
-1 <= repeatLimit <= s.length <= 105
-s consists of lowercase English letters.
+1 <= buildings.length <= 104
+0 <= lefti < righti <= 231 - 1
+1 <= heighti <= 231 - 1
+buildings is sorted by lefti in non-decreasing order.

@@ -1,28 +1,24 @@
-Design a system that manages the reservation state of n seats that are numbered from 1 to n.
-Implement the SeatManager class:
-SeatManager(int n) Initializes a SeatManager object that will manage n seats numbered from 1 to n. All seats are initially available.
-int reserve() Fetches the smallest-numbered unreserved seat, reserves it, and returns its number.
-void unreserve(int seatNumber) Unreserves the seat with the given seatNumber.
+You are given an integer array banned and two integers n and maxSum. You are choosing some number of integers following the below rules:
+The chosen integers have to be in the range [1, n].
+Each integer can be chosen at most once.
+The chosen integers should not be in the array banned.
+The sum of the chosen integers should not exceed maxSum.
+Return the maximum number of integers you can choose following the mentioned rules.
   Example 1:
-Input
-["SeatManager", "reserve", "reserve", "unreserve", "reserve", "reserve", "reserve", "reserve", "unreserve"]
-[[5], [], [], [2], [], [], [], [], [5]]
-Output
-[null, 1, 2, null, 2, 3, 4, 5, null]
-
-Explanation
-SeatManager seatManager = new SeatManager(5); // Initializes a SeatManager with 5 seats.
-seatManager.reserve();    // All seats are available, so return the lowest numbered seat, which is 1.
-seatManager.reserve();    // The available seats are [2,3,4,5], so return the lowest of them, which is 2.
-seatManager.unreserve(2); // Unreserve seat 2, so now the available seats are [2,3,4,5].
-seatManager.reserve();    // The available seats are [2,3,4,5], so return the lowest of them, which is 2.
-seatManager.reserve();    // The available seats are [3,4,5], so return the lowest of them, which is 3.
-seatManager.reserve();    // The available seats are [4,5], so return the lowest of them, which is 4.
-seatManager.reserve();    // The only available seat is seat 5, so return 5.
-seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5].
+Input: banned = [1,6,5], n = 5, maxSum = 6
+Output: 2
+Explanation: You can choose the integers 2 and 4.
+2 and 4 are from the range [1, 5], both did not appear in banned, and their sum is 6, which did not exceed maxSum.
+Example 2:
+Input: banned = [1,2,3,4,5,6,7], n = 8, maxSum = 1
+Output: 0
+Explanation: You cannot choose any integer while following the mentioned conditions.
+Example 3:
+Input: banned = [11], n = 7, maxSum = 50
+Output: 7
+Explanation: You can choose the integers 1, 2, 3, 4, 5, 6, and 7.
+They are from the range [1, 7], all did not appear in banned, and their sum is 28, which did not exceed maxSum.
   Constraints:
-1 <= n <= 105
-1 <= seatNumber <= n
-For each call to reserve, it is guaranteed that there will be at least one unreserved seat.
-For each call to unreserve, it is guaranteed that seatNumber will be reserved.
-At most 105 calls in total will be made to reserve and unreserve.
+1 <= banned.length <= 104
+1 <= banned[i], n <= 104
+1 <= maxSum <= 109

@@ -1,18 +1,16 @@
-You are given a 0-indexed integer matrix grid and an integer k.
-Return the number of
-submatrices
-that contain the top-left element of the grid, and have a sum less than or equal to k.
+There is a hidden integer array arr that consists of n non-negative integers.
+It was encoded into another integer array encoded of length n - 1, such that encoded[i] = arr[i] XOR arr[i + 1]. For example, if arr = [1,0,2,1], then encoded = [1,2,3].
+You are given the encoded array. You are also given an integer first, that is the first element of arr, i.e. arr[0].
+Return the original array arr. It can be proved that the answer exists and is unique.
   Example 1:
-Input: grid = [[7,6,3],[6,6,1]], k = 18
-Output: 4
-Explanation: There are only 4 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 18.
+Input: encoded = [1,2,3], first = 1
+Output: [1,0,2,1]
+Explanation: If arr = [1,0,2,1], then first = 1 and encoded = [1 XOR 0, 0 XOR 2, 2 XOR 1] = [1,2,3]
 Example 2:
-Input: grid = [[7,2,9],[1,5,0],[2,6,6]], k = 20
-Output: 6
-Explanation: There are only 6 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 20.
+Input: encoded = [6,2,7,3], first = 4
+Output: [4,2,0,7,4]
   Constraints:
-m == grid.length 
-n == grid[i].length
-1 <= n, m <= 1000 
-0 <= grid[i][j] <= 1000
-1 <= k <= 109
+2 <= n <= 104
+encoded.length == n - 1
+0 <= encoded[i] <= 105
+0 <= first <= 105

@@ -1,31 +1,19 @@
-You are given an m x n integer matrix mat and an integer target.
-Choose one integer from each row in the matrix such that the absolute difference between target and the sum of the chosen elements is minimized.
-Return the minimum absolute difference.
-The absolute difference between two numbers a and b is the absolute value of a - b.
+You are given a string s consisting of lowercase letters and an integer k. We call a string t ideal if the following conditions are satisfied:
+t is a subsequence of the string s.
+The absolute difference in the alphabet order of every two adjacent letters in t is less than or equal to k.
+Return the length of the longest ideal string.
+A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
+Note that the alphabet order is not cyclic. For example, the absolute difference in the alphabet order of 'a' and 'z' is 25, not 1.
   Example 1:
-Input: mat = [[1,2,3],[4,5,6],[7,8,9]], target = 13
-Output: 0
-Explanation: One possible choice is to:
-- Choose 1 from the first row.
-- Choose 5 from the second row.
-- Choose 7 from the third row.
-The sum of the chosen elements is 13, which equals the target, so the absolute difference is 0.
+Input: s = "acfgbd", k = 2
+Output: 4
+Explanation: The longest ideal string is "acbd". The length of this string is 4, so 4 is returned.
+Note that "acfgbd" is not ideal because 'c' and 'f' have a difference of 3 in alphabet order.
 Example 2:
-Input: mat = [[1],[2],[3]], target = 100
-Output: 94
-Explanation: The best possible choice is to:
-- Choose 1 from the first row.
-- Choose 2 from the second row.
-- Choose 3 from the third row.
-The sum of the chosen elements is 6, and the absolute difference is 94.
-Example 3:
-Input: mat = [[1,2,9,8,7]], target = 6
-Output: 1
-Explanation: The best choice is to choose 7 from the first row.
-The absolute difference is 1.
+Input: s = "abcd", k = 3
+Output: 4
+Explanation: The longest ideal string is "abcd". The length of this string is 4, so 4 is returned.
   Constraints:
-m == mat.length
-n == mat[i].length
-1 <= m, n <= 70
-1 <= mat[i][j] <= 70
-1 <= target <= 800
+1 <= s.length <= 105
+0 <= k <= 25
+s consists of lowercase English letters.

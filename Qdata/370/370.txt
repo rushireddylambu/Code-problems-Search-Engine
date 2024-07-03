@@ -1,24 +1,24 @@
-You are given a string s consisting only of lowercase English letters.
-In one move, you can select any two adjacent characters of s and swap them.
-Return the minimum number of moves needed to make s a palindrome.
-Note that the input will be generated such that s can always be converted to a palindrome.
+You are given a 0-indexed integer array nums. Rearrange the values of nums according to the following rules:
+Sort the values at odd indices of nums in non-increasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [4,3,2,1] after. The values at odd indices 1 and 3 are sorted in non-increasing order.
+Sort the values at even indices of nums in non-decreasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [2,1,4,3] after. The values at even indices 0 and 2 are sorted in non-decreasing order.
+Return the array formed after rearranging the values of nums.
   Example 1:
-Input: s = "aabb"
-Output: 2
-Explanation:
-We can obtain two palindromes from s, "abba" and "baab". 
-- We can obtain "abba" from s in 2 moves: "aabb" -> "abab" -> "abba".
-- We can obtain "baab" from s in 2 moves: "aabb" -> "abab" -> "baab".
-Thus, the minimum number of moves needed to make s a palindrome is 2.
+Input: nums = [4,1,2,3]
+Output: [2,3,4,1]
+Explanation: 
+First, we sort the values present at odd indices (1 and 3) in non-increasing order.
+So, nums changes from [4,1,2,3] to [4,3,2,1].
+Next, we sort the values present at even indices (0 and 2) in non-decreasing order.
+So, nums changes from [4,1,2,3] to [2,3,4,1].
+Thus, the array formed after rearranging the values is [2,3,4,1].
 Example 2:
-Input: s = "letelt"
-Output: 2
-Explanation:
-One of the palindromes we can obtain from s in 2 moves is "lettel".
-One of the ways we can obtain it is "letelt" -> "letetl" -> "lettel".
-Other palindromes such as "tleelt" can also be obtained in 2 moves.
-It can be shown that it is not possible to obtain a palindrome in less than 2 moves.
+Input: nums = [2,1]
+Output: [2,1]
+Explanation: 
+Since there is exactly one odd index and one even index, no rearrangement of values takes place.
+The resultant array formed is [2,1], which is the same as the initial array. 
   Constraints:
-1 <= s.length <= 2000
-s consists only of lowercase English letters.
-s can be converted to a palindrome using a finite number of moves.
+1 <= nums.length <= 100
+1 <= nums[i] <= 100

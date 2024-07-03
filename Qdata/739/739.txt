@@ -1,29 +1,21 @@
-Given an array arr that represents a permutation of numbers from 1 to n.
-You have a binary string of size n that initially has all its bits set to zero. At each step i (assuming both the binary string and arr are 1-indexed) from 1 to n, the bit at position arr[i] is set to 1.
-You are also given an integer m. Find the latest step at which there exists a group of ones of length m. A group of ones is a contiguous substring of 1's such that it cannot be extended in either direction.
-Return the latest step at which there exists a group of ones of length exactly m. If no such group exists, return -1.
+You are given an integer array prices where prices[i] is the price of the ith item in a shop.
+There is a special discount for items in the shop. If you buy the ith item, then you will receive a discount equivalent to prices[j] where j is the minimum index such that j > i and prices[j] <= prices[i]. Otherwise, you will not receive any discount at all.
+Return an integer array answer where answer[i] is the final price you will pay for the ith item of the shop, considering the special discount.
   Example 1:
-Input: arr = [3,5,1,2,4], m = 1
-Output: 4
+Input: prices = [8,4,6,2,3]
+Output: [4,2,4,2,3]
 Explanation: 
-Step 1: "00100", groups: ["1"]
-Step 2: "00101", groups: ["1", "1"]
-Step 3: "10101", groups: ["1", "1", "1"]
-Step 4: "11101", groups: ["111", "1"]
-Step 5: "11111", groups: ["11111"]
-The latest step at which there exists a group of size 1 is step 4.
+For item 0 with price[0]=8 you will receive a discount equivalent to prices[1]=4, therefore, the final price you will pay is 8 - 4 = 4.
+For item 1 with price[1]=4 you will receive a discount equivalent to prices[3]=2, therefore, the final price you will pay is 4 - 2 = 2.
+For item 2 with price[2]=6 you will receive a discount equivalent to prices[3]=2, therefore, the final price you will pay is 6 - 2 = 4.
+For items 3 and 4 you will not receive any discount at all.
 Example 2:
-Input: arr = [3,1,5,4,2], m = 2
-Output: -1
-Explanation: 
-Step 1: "00100", groups: ["1"]
-Step 2: "10100", groups: ["1", "1"]
-Step 3: "10101", groups: ["1", "1", "1"]
-Step 4: "10111", groups: ["1", "111"]
-Step 5: "11111", groups: ["11111"]
-No group of size 2 exists during any step.
+Input: prices = [1,2,3,4,5]
+Output: [1,2,3,4,5]
+Explanation: In this case, for all items, you will not receive any discount at all.
+Example 3:
+Input: prices = [10,1,1,6]
+Output: [9,0,1,6]
   Constraints:
-n == arr.length
-1 <= m <= n <= 105
-1 <= arr[i] <= n
-All integers in arr are distinct.
+1 <= prices.length <= 500
+1 <= prices[i] <= 1000

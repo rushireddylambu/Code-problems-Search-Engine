@@ -1,21 +1,31 @@
-You are given two arrays with positive integers arr1 and arr2.
-A prefix of a positive integer is an integer formed by one or more of its digits, starting from its leftmost digit. For example, 123 is a prefix of the integer 12345, while 234 is not.
-A common prefix of two integers a and b is an integer c, such that c is a prefix of both a and b. For example, 5655359 and 56554 have a common prefix 565 while 1223 and 43456 do not have a common prefix.
-You need to find the length of the longest common prefix between all pairs of integers (x, y) such that x belongs to arr1 and y belongs to arr2.
-Return the length of the longest common prefix among all pairs. If no common prefix exists among them, return 0.
+We have n buildings numbered from 0 to n - 1. Each building has a number of employees. It's transfer season, and some employees want to change the building they reside in.
+You are given an array requests where requests[i] = [fromi, toi] represents an employee's request to transfer from building fromi to building toi.
+All buildings are full, so a list of requests is achievable only if for each building, the net change in employee transfers is zero. This means the number of employees leaving is equal to the number of employees moving in. For example if n = 3 and two employees are leaving building 0, one is leaving building 1, and one is leaving building 2, there should be two employees moving to building 0, one employee moving to building 1, and one employee moving to building 2.
+Return the maximum number of achievable requests.
   Example 1:
-Input: arr1 = [1,10,100], arr2 = [1000]
-Output: 3
-Explanation: There are 3 pairs (arr1[i], arr2[j]):
-- The longest common prefix of (1, 1000) is 1.
-- The longest common prefix of (10, 1000) is 10.
-- The longest common prefix of (100, 1000) is 100.
-The longest common prefix is 100 with a length of 3.
+Input: n = 5, requests = [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
+Output: 5
+Explantion: Let's see the requests:
+From building 0 we have employees x and y and both want to move to building 1.
+From building 1 we have employees a and b and they want to move to buildings 2 and 0 respectively.
+From building 2 we have employee z and they want to move to building 0.
+From building 3 we have employee c and they want to move to building 4.
+From building 4 we don't have any requests.
+We can achieve the requests of users x and b by swapping their places.
+We can achieve the requests of users y, a and z by swapping the places in the 3 buildings.
 Example 2:
-Input: arr1 = [1,2,3], arr2 = [4,4,4]
-Output: 0
-Explanation: There exists no common prefix for any pair (arr1[i], arr2[j]), hence we return 0.
-Note that common prefixes between elements of the same array do not count.
+Input: n = 3, requests = [[0,0],[1,2],[2,1]]
+Output: 3
+Explantion: Let's see the requests:
+From building 0 we have employee x and they want to stay in the same building 0.
+From building 1 we have employee y and they want to move to building 2.
+From building 2 we have employee z and they want to move to building 1.
+We can achieve all the requests. 
+Example 3:
+Input: n = 4, requests = [[0,3],[3,1],[1,2],[2,0]]
+Output: 4
   Constraints:
-1 <= arr1.length, arr2.length <= 5 * 104
-1 <= arr1[i], arr2[i] <= 108
+1 <= n <= 20
+1 <= requests.length <= 16
+requests[i].length == 2
+0 <= fromi, toi < n

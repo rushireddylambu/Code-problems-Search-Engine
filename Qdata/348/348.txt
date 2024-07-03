@@ -1,22 +1,26 @@
-Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
-A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
+You are given nums, an array of positive integers of size 2 * n. You must perform n operations on this array.
+In the ith operation (1-indexed), you will:
+Choose two elements, x and y.
+Receive a score of i * gcd(x, y).
+Remove x and y from nums.
+Return the maximum score you can receive after performing n operations.
+The function gcd(x, y) is the greatest common divisor of x and y.
   Example 1:
-Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-Output: true
-Explanation:
-In the above grid, the diagonals are:
-"[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]".
-In each diagonal all elements are the same, so the answer is True.
+Input: nums = [1,2]
+Output: 1
+Explanation: The optimal choice of operations is:
+(1 * gcd(1, 2)) = 1
 Example 2:
-Input: matrix = [[1,2],[2,2]]
-Output: false
-Explanation:
-The diagonal "[1, 2]" has different elements.
+Input: nums = [3,4,6,8]
+Output: 11
+Explanation: The optimal choice of operations is:
+(1 * gcd(3, 6)) + (2 * gcd(4, 8)) = 3 + 8 = 11
+Example 3:
+Input: nums = [1,2,3,4,5,6]
+Output: 14
+Explanation: The optimal choice of operations is:
+(1 * gcd(1, 5)) + (2 * gcd(2, 4)) + (3 * gcd(3, 6)) = 1 + 4 + 9 = 14
   Constraints:
-m == matrix.length
-n == matrix[i].length
-1 <= m, n <= 20
-0 <= matrix[i][j] <= 99
-  Follow up:
-What if the matrix is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?
-What if the matrix is so large that you can only load up a partial row into the memory at once?
+1 <= n <= 7
+nums.length == 2 * n
+1 <= nums[i] <= 106

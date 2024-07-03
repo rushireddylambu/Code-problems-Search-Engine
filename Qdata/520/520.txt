@@ -1,22 +1,18 @@
-You are given an integer array nums of length n which represents a permutation of all the integers in the range [0, n - 1].
-The number of global inversions is the number of the different pairs (i, j) where:
-0 <= i < j < n
-nums[i] > nums[j]
-The number of local inversions is the number of indices i where:
-0 <= i < n - 1
-nums[i] > nums[i + 1]
-Return true if the number of global inversions is equal to the number of local inversions.
+You are given an array of strings names, and an array heights that consists of distinct positive integers. Both arrays are of length n.
+For each index i, names[i] and heights[i] denote the name and height of the ith person.
+Return names sorted in descending order by the people's heights.
   Example 1:
-Input: nums = [1,0,2]
-Output: true
-Explanation: There is 1 global inversion and 1 local inversion.
+Input: names = ["Mary","John","Emma"], heights = [180,165,170]
+Output: ["Mary","Emma","John"]
+Explanation: Mary is the tallest, followed by Emma and John.
 Example 2:
-Input: nums = [1,2,0]
-Output: false
-Explanation: There are 2 global inversions and 1 local inversion.
+Input: names = ["Alice","Bob","Bob"], heights = [155,185,150]
+Output: ["Bob","Alice","Bob"]
+Explanation: The first Bob is the tallest, followed by Alice and the second Bob.
   Constraints:
-n == nums.length
-1 <= n <= 105
-0 <= nums[i] < n
-All the integers of nums are unique.
-nums is a permutation of all the numbers in the range [0, n - 1].
+n == names.length == heights.length
+1 <= n <= 103
+1 <= names[i].length <= 20
+1 <= heights[i] <= 105
+names[i] consists of lower and upper case English letters.
+All the values of heights are distinct.

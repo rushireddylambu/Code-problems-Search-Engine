@@ -1,36 +1,24 @@
-You are given two positive integers x and y.
-In one operation, you can do one of the four following operations:
-Divide x by 11 if x is a multiple of 11.
-Divide x by 5 if x is a multiple of 5.
-Decrement x by 1.
-Increment x by 1.
-Return the minimum number of operations required to make x and y equal.
+There are n cities numbered from 1 to n. You are given an array edges of size n-1, where edges[i] = [ui, vi] represents a bidirectional edge between cities ui and vi. There exists a unique path between each pair of cities. In other words, the cities form a tree.
+A subtree is a subset of cities where every city is reachable from every other city in the subset, where the path between each pair passes through only the cities from the subset. Two subtrees are different if there is a city in one subtree that is not present in the other.
+For each d from 1 to n-1, find the number of subtrees in which the maximum distance between any two cities in the subtree is equal to d.
+Return an array of size n-1 where the dth element (1-indexed) is the number of subtrees in which the maximum distance between any two cities is equal to d.
+Notice that the distance between the two cities is the number of edges in the path between them.
   Example 1:
-Input: x = 26, y = 1
-Output: 3
-Explanation: We can make 26 equal to 1 by applying the following operations: 
-1. Decrement x by 1
-2. Divide x by 5
-3. Divide x by 5
-It can be shown that 3 is the minimum number of operations required to make 26 equal to 1.
+Input: n = 4, edges = [[1,2],[2,3],[2,4]]
+Output: [3,4,0]
+Explanation:
+The subtrees with subsets {1,2}, {2,3} and {2,4} have a max distance of 1.
+The subtrees with subsets {1,2,3}, {1,2,4}, {2,3,4} and {1,2,3,4} have a max distance of 2.
+No subtree has two nodes where the max distance between them is 3.
 Example 2:
-Input: x = 54, y = 2
-Output: 4
-Explanation: We can make 54 equal to 2 by applying the following operations: 
-1. Increment x by 1
-2. Divide x by 11 
-3. Divide x by 5
-4. Increment x by 1
-It can be shown that 4 is the minimum number of operations required to make 54 equal to 2.
+Input: n = 2, edges = [[1,2]]
+Output: [1]
 Example 3:
-Input: x = 25, y = 30
-Output: 5
-Explanation: We can make 25 equal to 30 by applying the following operations: 
-1. Increment x by 1
-2. Increment x by 1
-3. Increment x by 1
-4. Increment x by 1
-5. Increment x by 1
-It can be shown that 5 is the minimum number of operations required to make 25 equal to 30.
+Input: n = 3, edges = [[1,2],[2,3]]
+Output: [2,1]
   Constraints:
-1 <= x, y <= 104
+2 <= n <= 15
+edges.length == n-1
+edges[i].length == 2
+1 <= ui, vi <= n
+All pairs (ui, vi) are distinct.

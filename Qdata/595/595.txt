@@ -1,13 +1,11 @@
-You are given a string s. You can convert s to a
-palindrome
-by adding characters in front of it.
-Return the shortest palindrome you can find by performing this transformation.
+Given a string s, return the last substring of s in lexicographical order.
   Example 1:
-Input: s = "aacecaaa"
-Output: "aaacecaaa"
+Input: s = "abab"
+Output: "bab"
+Explanation: The substrings are ["a", "ab", "aba", "abab", "b", "ba", "bab"]. The lexicographically maximum substring is "bab".
 Example 2:
-Input: s = "abcd"
-Output: "dcbabcd"
+Input: s = "leetcode"
+Output: "tcode"
   Constraints:
-0 <= s.length <= 5 * 104
-s consists of lowercase English letters only.
+1 <= s.length <= 4 * 105
+s contains only lowercase English letters.

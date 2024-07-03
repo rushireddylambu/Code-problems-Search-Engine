@@ -1,17 +1,20 @@
-You are given an array nums and an integer k. The XOR of a segment [left, right] where left <= right is the XOR of all the elements with indices between left and right, inclusive: nums[left] XOR nums[left+1] XOR ... XOR nums[right].
-Return the minimum number of elements to change in the array such that the XOR of all segments of size k is equal to zero.
+In a garden represented as an infinite 2D grid, there is an apple tree planted at every integer coordinate. The apple tree planted at an integer coordinate (i, j) has |i| + |j| apples growing on it.
+You will buy an axis-aligned square plot of land that is centered at (0, 0).
+Given an integer neededApples, return the minimum perimeter of a plot such that at least neededApples apples are inside or on the perimeter of that plot.
+The value of |x| is defined as:
+x if x >= 0
+-x if x < 0
   Example 1:
-Input: nums = [1,2,0,3,0], k = 1
-Output: 3
-Explanation: Modify the array from [1,2,0,3,0] to from [0,0,0,0,0].
+Input: neededApples = 1
+Output: 8
+Explanation: A square plot of side length 1 does not contain any apples.
+However, a square plot of side length 2 has 12 apples inside (as depicted in the image above).
+The perimeter is 2 * 4 = 8.
 Example 2:
-Input: nums = [3,4,5,2,1,7,3,4,7], k = 3
-Output: 3
-Explanation: Modify the array from [3,4,5,2,1,7,3,4,7] to [3,4,7,3,4,7,3,4,7].
+Input: neededApples = 13
+Output: 16
 Example 3:
-Input: nums = [1,2,4,1,2,5,1,2,6], k = 3
-Output: 3
-Explanation: Modify the array from [1,2,4,1,2,5,1,2,6] to [1,2,3,1,2,3,1,2,3].
+Input: neededApples = 1000000000
+Output: 5040
   Constraints:
-1 <= k <= nums.length <= 2000
-0 <= nums[i] < 210
+1 <= neededApples <= 1015

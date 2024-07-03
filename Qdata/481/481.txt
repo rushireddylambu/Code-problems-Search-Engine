@@ -1,13 +1,17 @@
-There is an m x n grid with a ball. The ball is initially at the position [startRow, startColumn]. You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the grid crossing the grid boundary). You can apply at most maxMove moves to the ball.
-Given the five integers m, n, maxMove, startRow, startColumn, return the number of paths to move the ball out of the grid boundary. Since the answer can be very large, return it modulo 109 + 7.
+Given an integer array nums of 2n integers, group these integers into n pairs (a1, b1), (a2, b2), ..., (an, bn) such that the sum of min(ai, bi) for all i is maximized. Return the maximized sum.
   Example 1:
-Input: m = 2, n = 2, maxMove = 2, startRow = 0, startColumn = 0
-Output: 6
+Input: nums = [1,4,3,2]
+Output: 4
+Explanation: All possible pairings (ignoring the ordering of elements) are:
+1. (1, 4), (2, 3) -> min(1, 4) + min(2, 3) = 1 + 2 = 3
+2. (1, 3), (2, 4) -> min(1, 3) + min(2, 4) = 1 + 2 = 3
+3. (1, 2), (3, 4) -> min(1, 2) + min(3, 4) = 1 + 3 = 4
+So the maximum possible sum is 4.
 Example 2:
-Input: m = 1, n = 3, maxMove = 3, startRow = 0, startColumn = 1
-Output: 12
+Input: nums = [6,2,6,5,1,2]
+Output: 9
+Explanation: The optimal pairing is (2, 1), (2, 5), (6, 6). min(2, 1) + min(2, 5) + min(6, 6) = 1 + 2 + 6 = 9.
   Constraints:
-1 <= m, n <= 50
-0 <= maxMove <= 50
-0 <= startRow < m
-0 <= startColumn < n
+1 <= n <= 104
+nums.length == 2 * n
+-104 <= nums[i] <= 104

@@ -1,28 +1,20 @@
-You are given two integer arrays persons and times. In an election, the ith vote was cast for persons[i] at time times[i].
-For each query at a time t, find the person that was leading the election at time t. Votes cast at time t will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins.
-Implement the TopVotedCandidate class:
-TopVotedCandidate(int[] persons, int[] times) Initializes the object with the persons and times arrays.
-int q(int t) Returns the number of the person that was leading the election at time t according to the mentioned rules.
+Given the root of a binary tree, return the number of nodes where the value of the node is equal to the average of the values in its subtree.
+Note:
+The average of n elements is the sum of the n elements divided by n and rounded down to the nearest integer.
+A subtree of root is a tree consisting of root and all of its descendants.
   Example 1:
-Input
-["TopVotedCandidate", "q", "q", "q", "q", "q", "q"]
-[[[0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]], [3], [12], [25], [15], [24], [8]]
-Output
-[null, 0, 1, 1, 0, 0, 1]
-
-Explanation
-TopVotedCandidate topVotedCandidate = new TopVotedCandidate([0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]);
-topVotedCandidate.q(3); // return 0, At time 3, the votes are [0], and 0 is leading.
-topVotedCandidate.q(12); // return 1, At time 12, the votes are [0,1,1], and 1 is leading.
-topVotedCandidate.q(25); // return 1, At time 25, the votes are [0,1,1,0,0,1], and 1 is leading (as ties go to the most recent vote.)
-topVotedCandidate.q(15); // return 0
-topVotedCandidate.q(24); // return 0
-topVotedCandidate.q(8); // return 1
+Input: root = [4,8,5,0,1,null,6]
+Output: 5
+Explanation: 
+For the node with value 4: The average of its subtree is (4 + 8 + 5 + 0 + 1 + 6) / 6 = 24 / 6 = 4.
+For the node with value 5: The average of its subtree is (5 + 6) / 2 = 11 / 2 = 5.
+For the node with value 0: The average of its subtree is 0 / 1 = 0.
+For the node with value 1: The average of its subtree is 1 / 1 = 1.
+For the node with value 6: The average of its subtree is 6 / 1 = 6.
+Example 2:
+Input: root = [1]
+Output: 1
+Explanation: For the node with value 1: The average of its subtree is 1 / 1 = 1.
   Constraints:
-1 <= persons.length <= 5000
-times.length == persons.length
-0 <= persons[i] < persons.length
-0 <= times[i] <= 109
-times is sorted in a strictly increasing order.
-times[0] <= t <= 109
-At most 104 calls will be made to q.
+The number of nodes in the tree is in the range [1, 1000].
+0 <= Node.val <= 1000

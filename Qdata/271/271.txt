@@ -1,12 +1,11 @@
-You have n coins and you want to build a staircase with these coins. The staircase consists of k rows where the ith row has exactly i coins. The last row of the staircase may be incomplete.
-Given the integer n, return the number of complete rows of the staircase you will build.
-  Example 1:
-Input: n = 5
-Output: 2
-Explanation: Because the 3rd row is incomplete, we return 2.
-Example 2:
-Input: n = 8
-Output: 3
-Explanation: Because the 4th row is incomplete, we return 3.
-  Constraints:
-1 <= n <= 231 - 1
+Given a text file file.txt that contains a list of phone numbers (one per line), write a one-liner bash script to print all valid phone numbers.
+You may assume that a valid phone number must appear in one of the following two formats: (xxx) xxx-xxxx or xxx-xxx-xxxx. (x means a digit)
+You may also assume each line in the text file must not contain leading or trailing white spaces.
+Example:
+Assume that file.txt has the following content:
+987-123-4567
+123 456 7890
+(123) 456-7890
+Your script should output the following valid phone numbers:
+987-123-4567
+(123) 456-7890

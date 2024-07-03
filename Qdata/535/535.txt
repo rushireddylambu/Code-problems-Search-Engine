@@ -1,15 +1,18 @@
-An alphabetical continuous string is a string consisting of consecutive letters in the alphabet. In other words, it is any substring of the string "abcdefghijklmnopqrstuvwxyz".
-For example, "abc" is an alphabetical continuous string, while "acb" and "za" are not.
-Given a string s consisting of lowercase letters only, return the length of the longest alphabetical continuous substring.
+Given an array arr of positive integers, consider all binary trees such that:
+Each node has either 0 or 2 children;
+The values of arr correspond to the values of each leaf in an in-order traversal of the tree.
+The value of each non-leaf node is equal to the product of the largest leaf value in its left and right subtree, respectively.
+Among all possible binary trees considered, return the smallest possible sum of the values of each non-leaf node. It is guaranteed this sum fits into a 32-bit integer.
+A node is a leaf if and only if it has zero children.
   Example 1:
-Input: s = "abacaba"
-Output: 2
-Explanation: There are 4 distinct continuous substrings: "a", "b", "c" and "ab".
-"ab" is the longest continuous substring.
+Input: arr = [6,2,4]
+Output: 32
+Explanation: There are two possible trees shown.
+The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
 Example 2:
-Input: s = "abcde"
-Output: 5
-Explanation: "abcde" is the longest continuous substring.
+Input: arr = [4,11]
+Output: 44
   Constraints:
-1 <= s.length <= 105
-s consists of only English lowercase letters.
+2 <= arr.length <= 40
+1 <= arr[i] <= 15
+It is guaranteed that the answer fits into a 32-bit signed integer (i.e., it is less than 231).

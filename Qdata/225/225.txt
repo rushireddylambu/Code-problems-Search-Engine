@@ -1,13 +1,16 @@
-Given a string s, return true if it is possible to split the string s into three non-empty palindromic substrings. Otherwise, return false.
-A string is said to be palindrome if it the same string when reversed.
+Given an integer n, return a binary string representing its representation in base -2.
+Note that the returned string should not have leading zeros unless the string is "0".
   Example 1:
-Input: s = "abcbdd"
-Output: true
-Explanation: "abcbdd" = "a" + "bcb" + "dd", and all three substrings are palindromes.
+Input: n = 2
+Output: "110"
+Explantion: (-2)2 + (-2)1 = 2
 Example 2:
-Input: s = "bcbddxy"
-Output: false
-Explanation: s cannot be split into 3 palindromes.
+Input: n = 3
+Output: "111"
+Explantion: (-2)2 + (-2)1 + (-2)0 = 3
+Example 3:
+Input: n = 4
+Output: "100"
+Explantion: (-2)2 = 4
   Constraints:
-3 <= s.length <= 2000
-s consists only of lowercase English letters.
+0 <= n <= 109

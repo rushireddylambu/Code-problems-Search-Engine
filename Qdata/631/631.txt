@@ -1,44 +1,25 @@
-An original string, consisting of lowercase English letters, can be encoded by the following steps:
-Arbitrarily split it into a sequence of some number of non-empty substrings.
-Arbitrarily choose some elements (possibly none) of the sequence, and replace each with its length (as a numeric string).
-Concatenate the sequence as the encoded string.
-For example, one way to encode an original string "abcdefghijklmnop" might be:
-Split it as a sequence: ["ab", "cdefghijklmn", "o", "p"].
-Choose the second and third elements to be replaced by their lengths, respectively. The sequence becomes ["ab", "12", "1", "p"].
-Concatenate the elements of the sequence to get the encoded string: "ab121p".
-Given two encoded strings s1 and s2, consisting of lowercase English letters and digits 1-9 (inclusive), return true if there exists an original string that could be encoded as both s1 and s2. Otherwise, return false.
-Note: The test cases are generated such that the number of consecutive digits in s1 and s2 does not exceed 3.
+You are given a directed graph with n nodes labeled from 0 to n - 1, where each node has exactly one outgoing edge.
+The graph is represented by a given 0-indexed integer array edges of length n, where edges[i] indicates that there is a directed edge from node i to node edges[i].
+The edge score of a node i is defined as the sum of the labels of all the nodes that have an edge pointing to i.
+Return the node with the highest edge score. If multiple nodes have the same edge score, return the node with the smallest index.
   Example 1:
-Input: s1 = "internationalization", s2 = "i18n"
-Output: true
-Explanation: It is possible that "internationalization" was the original string.
-- "internationalization" 
-  -> Split:       ["internationalization"]
-  -> Do not replace any element
-  -> Concatenate:  "internationalization", which is s1.
-- "internationalization"
-  -> Split:       ["i", "nternationalizatio", "n"]
-  -> Replace:     ["i", "18",                 "n"]
-  -> Concatenate:  "i18n", which is s2
+Input: edges = [1,0,0,0,0,7,7,5]
+Output: 7
+Explanation:
+- The nodes 1, 2, 3 and 4 have an edge pointing to node 0. The edge score of node 0 is 1 + 2 + 3 + 4 = 10.
+- The node 0 has an edge pointing to node 1. The edge score of node 1 is 0.
+- The node 7 has an edge pointing to node 5. The edge score of node 5 is 7.
+- The nodes 5 and 6 have an edge pointing to node 7. The edge score of node 7 is 5 + 6 = 11.
+Node 7 has the highest edge score so return 7.
 Example 2:
-Input: s1 = "l123e", s2 = "44"
-Output: true
-Explanation: It is possible that "leetcode" was the original string.
-- "leetcode" 
-  -> Split:      ["l", "e", "et", "cod", "e"]
-  -> Replace:    ["l", "1", "2",  "3",   "e"]
-  -> Concatenate: "l123e", which is s1.
-- "leetcode" 
-  -> Split:      ["leet", "code"]
-  -> Replace:    ["4",    "4"]
-  -> Concatenate: "44", which is s2.
-Example 3:
-Input: s1 = "a5b", s2 = "c5b"
-Output: false
-Explanation: It is impossible.
-- The original string encoded as s1 must start with the letter 'a'.
-- The original string encoded as s2 must start with the letter 'c'.
+Input: edges = [2,0,0,2]
+Output: 0
+Explanation:
+- The nodes 1 and 2 have an edge pointing to node 0. The edge score of node 0 is 1 + 2 = 3.
+- The nodes 0 and 3 have an edge pointing to node 2. The edge score of node 2 is 0 + 3 = 3.
+Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we return 0.
   Constraints:
-1 <= s1.length, s2.length <= 40
-s1 and s2 consist of digits 1-9 (inclusive), and lowercase English letters only.
-The number of consecutive digits in s1 and s2 does not exceed 3.
+n == edges.length
+2 <= n <= 105
+0 <= edges[i] < n
+edges[i] != i

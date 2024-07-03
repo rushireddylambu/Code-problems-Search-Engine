@@ -28,14 +28,14 @@ def get_array_of_links():
     return arr 
 
 def add_text_to_index_file(text):
-    index_file_path=os.path.join(QDATA_FOLDER,"index.txt")
-    with open(index_file_path,'a') as index_file:
-        index_file.write(text+"\n")
+    index_file_path=os.path.join(QDATA_FOLDER,"index.txt") #this gives a path to Qdata folder's index.txt
+    with open(index_file_path,'a') as index_file:          # opens index.txt as index_file using the path
+        index_file.write(text+"\n")                        # writes the headings of every problem in the index_file one after the other (because of "\n")
 
 def add_text_to_Qindex_file(text):
-    index_file_path=os.path.join(QDATA_FOLDER,"Qindex.txt")
-    with open(index_file_path,'a') as Qindex_file:
-        Qindex_file.write(text)
+    index_file_path=os.path.join(QDATA_FOLDER,"Qindex.txt")  #this gives a path to Qdata folder's Qindex.txt
+    with open(index_file_path,'a') as Qindex_file:           # opens Qindex.txt as Qindex_file using the path
+        Qindex_file.write(text)                              # writes in to the Qindex_file
 
 def create_and_add_text_to_file(file_name,text):
     folder_path=os.path.join(QDATA_FOLDER,file_name)

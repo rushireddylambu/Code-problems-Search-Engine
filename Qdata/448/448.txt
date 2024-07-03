@@ -1,22 +1,17 @@
-You have a pointer at index 0 in an array of size arrLen. At each step, you can move 1 position to the left, 1 position to the right in the array, or stay in the same place (The pointer should not be placed outside the array at any time).
-Given two integers steps and arrLen, return the number of ways such that your pointer is still at index 0 after exactly steps steps. Since the answer may be too large, return it modulo 109 + 7.
+Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
   Example 1:
-Input: steps = 3, arrLen = 2
-Output: 4
-Explanation: There are 4 differents ways to stay at index 0 after 3 steps.
-Right, Left, Stay
-Stay, Right, Left
-Right, Stay, Left
-Stay, Stay, Stay
+Input: num = "1432219", k = 3
+Output: "1219"
+Explanation: Remove the three digits 4, 3, and 2 to form the new number 1219 which is the smallest.
 Example 2:
-Input: steps = 2, arrLen = 4
-Output: 2
-Explanation: There are 2 differents ways to stay at index 0 after 2 steps
-Right, Left
-Stay, Stay
+Input: num = "10200", k = 1
+Output: "200"
+Explanation: Remove the leading 1 and the number is 200. Note that the output must not contain leading zeroes.
 Example 3:
-Input: steps = 4, arrLen = 2
-Output: 8
+Input: num = "10", k = 2
+Output: "0"
+Explanation: Remove all the digits from the number and it is left with nothing which is 0.
   Constraints:
-1 <= steps <= 500
-1 <= arrLen <= 106
+1 <= k <= num.length <= 105
+num consists of only digits.
+num does not have any leading zeros except for the zero itself.

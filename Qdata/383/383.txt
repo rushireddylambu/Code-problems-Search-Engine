@@ -1,17 +1,20 @@
-You are given an array of strings words (0-indexed).
-In one operation, pick two distinct indices i and j, where words[i] is a non-empty string, and move any character from words[i] to any position in words[j].
-Return true if you can make every string in words equal using any number of operations, and false otherwise.
+Given a string paragraph and a string array of the banned words banned, return the most frequent word that is not banned. It is guaranteed there is at least one word that is not banned, and that the answer is unique.
+The words in paragraph are case-insensitive and the answer should be returned in lowercase.
   Example 1:
-Input: words = ["abc","aabc","bc"]
-Output: true
-Explanation: Move the first 'a' in words[1] to the front of words[2],
-to make words[1] = "abc" and words[2] = "abc".
-All the strings are now equal to "abc", so return true.
+Input: paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"]
+Output: "ball"
+Explanation: 
+"hit" occurs 3 times, but it is a banned word.
+"ball" occurs twice (and no other word does), so it is the most frequent non-banned word in the paragraph. 
+Note that words in the paragraph are not case sensitive,
+that punctuation is ignored (even if adjacent to words, such as "ball,"), 
+and that "hit" isn't the answer even though it occurs more because it is banned.
 Example 2:
-Input: words = ["ab","a"]
-Output: false
-Explanation: It is impossible to make all the strings equal using the operation.
+Input: paragraph = "a.", banned = []
+Output: "a"
   Constraints:
-1 <= words.length <= 100
-1 <= words[i].length <= 100
-words[i] consists of lowercase English letters.
+1 <= paragraph.length <= 1000
+paragraph consists of English letters, space ' ', or one of the symbols: "!?',;.".
+0 <= banned.length <= 100
+1 <= banned[i].length <= 10
+banned[i] consists of only lowercase English letters.

@@ -1,17 +1,18 @@
-We have two special characters:
-The first character can be represented by one bit 0.
-The second character can be represented by two bits (10 or 11).
-Given a binary array bits that ends with 0, return true if the last character must be a one-bit character.
+You are given an integer array, nums, and an integer k. nums comprises of only 0's and 1's. In one move, you can choose two adjacent indices and swap their values.
+Return the minimum number of moves required so that nums has k consecutive 1's.
   Example 1:
-Input: bits = [1,0,0]
-Output: true
-Explanation: The only way to decode it is two-bit character and one-bit character.
-So the last character is one-bit character.
+Input: nums = [1,0,0,1,0,1], k = 2
+Output: 1
+Explanation: In 1 move, nums could be [1,0,0,0,1,1] and have 2 consecutive 1's.
 Example 2:
-Input: bits = [1,1,1,0]
-Output: false
-Explanation: The only way to decode it is two-bit character and two-bit character.
-So the last character is not one-bit character.
+Input: nums = [1,0,0,0,0,0,1,1], k = 3
+Output: 5
+Explanation: In 5 moves, the leftmost 1 can be shifted right until nums = [0,0,0,0,0,1,1,1].
+Example 3:
+Input: nums = [1,1,0,1], k = 2
+Output: 0
+Explanation: nums already has 2 consecutive 1's.
   Constraints:
-1 <= bits.length <= 1000
-bits[i] is either 0 or 1.
+1 <= nums.length <= 105
+nums[i] is 0 or 1.
+1 <= k <= sum(nums)

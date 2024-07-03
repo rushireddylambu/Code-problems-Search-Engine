@@ -1,29 +1,28 @@
-You are given positive integers n and target.
-An array nums is beautiful if it meets the following conditions:
-nums.length == n.
-nums consists of pairwise distinct positive integers.
-There doesn't exist two distinct indices, i and j, in the range [0, n - 1], such that nums[i] + nums[j] == target.
-Return the minimum possible sum that a beautiful array could have modulo 109 + 7.
+Design a system that manages the reservation state of n seats that are numbered from 1 to n.
+Implement the SeatManager class:
+SeatManager(int n) Initializes a SeatManager object that will manage n seats numbered from 1 to n. All seats are initially available.
+int reserve() Fetches the smallest-numbered unreserved seat, reserves it, and returns its number.
+void unreserve(int seatNumber) Unreserves the seat with the given seatNumber.
   Example 1:
-Input: n = 2, target = 3
-Output: 4
-Explanation: We can see that nums = [1,3] is beautiful.
-- The array nums has length n = 2.
-- The array nums consists of pairwise distinct positive integers.
-- There doesn't exist two distinct indices, i and j, with nums[i] + nums[j] == 3.
-It can be proven that 4 is the minimum possible sum that a beautiful array could have.
-Example 2:
-Input: n = 3, target = 3
-Output: 8
-Explanation: We can see that nums = [1,3,4] is beautiful.
-- The array nums has length n = 3.
-- The array nums consists of pairwise distinct positive integers.
-- There doesn't exist two distinct indices, i and j, with nums[i] + nums[j] == 3.
-It can be proven that 8 is the minimum possible sum that a beautiful array could have.
-Example 3:
-Input: n = 1, target = 1
-Output: 1
-Explanation: We can see, that nums = [1] is beautiful.
+Input
+["SeatManager", "reserve", "reserve", "unreserve", "reserve", "reserve", "reserve", "reserve", "unreserve"]
+[[5], [], [], [2], [], [], [], [], [5]]
+Output
+[null, 1, 2, null, 2, 3, 4, 5, null]
+
+Explanation
+SeatManager seatManager = new SeatManager(5); // Initializes a SeatManager with 5 seats.
+seatManager.reserve();    // All seats are available, so return the lowest numbered seat, which is 1.
+seatManager.reserve();    // The available seats are [2,3,4,5], so return the lowest of them, which is 2.
+seatManager.unreserve(2); // Unreserve seat 2, so now the available seats are [2,3,4,5].
+seatManager.reserve();    // The available seats are [2,3,4,5], so return the lowest of them, which is 2.
+seatManager.reserve();    // The available seats are [3,4,5], so return the lowest of them, which is 3.
+seatManager.reserve();    // The available seats are [4,5], so return the lowest of them, which is 4.
+seatManager.reserve();    // The only available seat is seat 5, so return 5.
+seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5].
   Constraints:
-1 <= n <= 109
-1 <= target <= 109
+1 <= n <= 105
+1 <= seatNumber <= n
+For each call to reserve, it is guaranteed that there will be at least one unreserved seat.
+For each call to unreserve, it is guaranteed that seatNumber will be reserved.
+At most 105 calls in total will be made to reserve and unreserve.

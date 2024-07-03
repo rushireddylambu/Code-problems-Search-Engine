@@ -1,39 +1,19 @@
-Table Activities:
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| sell_date   | date    |
-| product     | varchar |
-+-------------+---------+
-There is no primary key (column with unique values) for this table. It may contain duplicates.
-Each row of this table contains the product name and the date it was sold in a market.
-  Write a solution to find for each date the number of different products sold and their names.
-The sold products names for each date should be sorted lexicographically.
-Return the result table ordered by sell_date.
-The result format is in the following example.
+Given two positive integers left and right, find the two integers num1 and num2 such that:
+left <= num1 < num2 <= right .
+num1 and num2 are both prime numbers.
+num2 - num1 is the minimum amongst all other pairs satisfying the above conditions.
+Return the positive integer array ans = [num1, num2]. If there are multiple pairs satisfying these conditions, return the one with the minimum num1 value or [-1, -1] if such numbers do not exist.
+A number greater than 1 is called prime if it is only divisible by 1 and itself.
   Example 1:
-Input: 
-Activities table:
-+------------+------------+
-| sell_date  | product     |
-+------------+------------+
-| 2020-05-30 | Headphone  |
-| 2020-06-01 | Pencil     |
-| 2020-06-02 | Mask       |
-| 2020-05-30 | Basketball |
-| 2020-06-01 | Bible      |
-| 2020-06-02 | Mask       |
-| 2020-05-30 | T-Shirt    |
-+------------+------------+
-Output: 
-+------------+----------+------------------------------+
-| sell_date  | num_sold | products                     |
-+------------+----------+------------------------------+
-| 2020-05-30 | 3        | Basketball,Headphone,T-shirt |
-| 2020-06-01 | 2        | Bible,Pencil                 |
-| 2020-06-02 | 1        | Mask                         |
-+------------+----------+------------------------------+
-Explanation: 
-For 2020-05-30, Sold items were (Headphone, Basketball, T-shirt), we sort them lexicographically and separate them by a comma.
-For 2020-06-01, Sold items were (Pencil, Bible), we sort them lexicographically and separate them by a comma.
-For 2020-06-02, the Sold item is (Mask), we just return it.
+Input: left = 10, right = 19
+Output: [11,13]
+Explanation: The prime numbers between 10 and 19 are 11, 13, 17, and 19.
+The closest gap between any pair is 2, which can be achieved by [11,13] or [17,19].
+Since 11 is smaller than 17, we return the first pair.
+Example 2:
+Input: left = 4, right = 6
+Output: [-1,-1]
+Explanation: There exists only one prime number in the given range, so the conditions cannot be satisfied.
+  Constraints:
+1 <= left <= right <= 106
+ 

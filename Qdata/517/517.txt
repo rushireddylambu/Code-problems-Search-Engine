@@ -1,21 +1,22 @@
-You are given a 0-indexed array nums consisting of positive integers.
-There are two types of operations that you can apply on the array any number of times:
-Choose two elements with equal values and delete them from the array.
-Choose three elements with equal values and delete them from the array.
-Return the minimum number of operations required to make the array empty, or -1 if it is not possible.
+You are given an integer array nums of length n which represents a permutation of all the integers in the range [0, n - 1].
+The number of global inversions is the number of the different pairs (i, j) where:
+0 <= i < j < n
+nums[i] > nums[j]
+The number of local inversions is the number of indices i where:
+0 <= i < n - 1
+nums[i] > nums[i + 1]
+Return true if the number of global inversions is equal to the number of local inversions.
   Example 1:
-Input: nums = [2,3,3,2,2,4,2,3,4]
-Output: 4
-Explanation: We can apply the following operations to make the array empty:
-- Apply the first operation on the elements at indices 0 and 3. The resulting array is nums = [3,3,2,4,2,3,4].
-- Apply the first operation on the elements at indices 2 and 4. The resulting array is nums = [3,3,4,3,4].
-- Apply the second operation on the elements at indices 0, 1, and 3. The resulting array is nums = [4,4].
-- Apply the first operation on the elements at indices 0 and 1. The resulting array is nums = [].
-It can be shown that we cannot make the array empty in less than 4 operations.
+Input: nums = [1,0,2]
+Output: true
+Explanation: There is 1 global inversion and 1 local inversion.
 Example 2:
-Input: nums = [2,1,2,2,3,3]
-Output: -1
-Explanation: It is impossible to empty the array.
+Input: nums = [1,2,0]
+Output: false
+Explanation: There are 2 global inversions and 1 local inversion.
   Constraints:
-2 <= nums.length <= 105
-1 <= nums[i] <= 106
+n == nums.length
+1 <= n <= 105
+0 <= nums[i] < n
+All the integers of nums are unique.
+nums is a permutation of all the numbers in the range [0, n - 1].

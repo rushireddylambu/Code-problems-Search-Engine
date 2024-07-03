@@ -1,19 +1,17 @@
-Given two positive integers left and right, find the two integers num1 and num2 such that:
-left <= num1 < num2 <= right .
-num1 and num2 are both prime numbers.
-num2 - num1 is the minimum amongst all other pairs satisfying the above conditions.
-Return the positive integer array ans = [num1, num2]. If there are multiple pairs satisfying these conditions, return the one with the minimum num1 value or [-1, -1] if such numbers do not exist.
-A number greater than 1 is called prime if it is only divisible by 1 and itself.
+You are given two arrays nums1 and nums2 consisting of positive integers.
+You have to replace all the 0's in both arrays with strictly positive integers such that the sum of elements of both arrays becomes equal.
+Return the minimum equal sum you can obtain, or -1 if it is impossible.
   Example 1:
-Input: left = 10, right = 19
-Output: [11,13]
-Explanation: The prime numbers between 10 and 19 are 11, 13, 17, and 19.
-The closest gap between any pair is 2, which can be achieved by [11,13] or [17,19].
-Since 11 is smaller than 17, we return the first pair.
+Input: nums1 = [3,2,0,1,0], nums2 = [6,5,0]
+Output: 12
+Explanation: We can replace 0's in the following way:
+- Replace the two 0's in nums1 with the values 2 and 4. The resulting array is nums1 = [3,2,2,1,4].
+- Replace the 0 in nums2 with the value 1. The resulting array is nums2 = [6,5,1].
+Both arrays have an equal sum of 12. It can be shown that it is the minimum sum we can obtain.
 Example 2:
-Input: left = 4, right = 6
-Output: [-1,-1]
-Explanation: There exists only one prime number in the given range, so the conditions cannot be satisfied.
+Input: nums1 = [2,0,2,0], nums2 = [1,4]
+Output: -1
+Explanation: It is impossible to make the sum of both arrays equal.
   Constraints:
-1 <= left <= right <= 106
- 
+1 <= nums1.length, nums2.length <= 105
+0 <= nums1[i], nums2[i] <= 106

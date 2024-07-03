@@ -1,19 +1,21 @@
-Given a date string in the form Day Month Year, where:
-Day is in the set {"1st", "2nd", "3rd", "4th", ..., "30th", "31st"}.
-Month is in the set {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}.
-Year is in the range [1900, 2100].
-Convert the date string to the format YYYY-MM-DD, where:
-YYYY denotes the 4 digit year.
-MM denotes the 2 digit month.
-DD denotes the 2 digit day.
+You are given the root of a binary tree with n nodes. Each node is uniquely assigned a value from 1 to n. You are also given an integer startValue representing the value of the start node s, and a different integer destValue representing the value of the destination node t.
+Find the shortest path starting from node s and ending at node t. Generate step-by-step directions of such path as a string consisting of only the uppercase letters 'L', 'R', and 'U'. Each letter indicates a specific direction:
+'L' means to go from a node to its left child node.
+'R' means to go from a node to its right child node.
+'U' means to go from a node to its parent node.
+Return the step-by-step directions of the shortest path from node s to node t.
   Example 1:
-Input: date = "20th Oct 2052"
-Output: "2052-10-20"
+Input: root = [5,1,2,3,null,6,4], startValue = 3, destValue = 6
+Output: "UURL"
+Explanation: The shortest path is: 3 → 1 → 5 → 2 → 6.
 Example 2:
-Input: date = "6th Jun 1933"
-Output: "1933-06-06"
-Example 3:
-Input: date = "26th May 1960"
-Output: "1960-05-26"
+Input: root = [2,1], startValue = 2, destValue = 1
+Output: "L"
+Explanation: The shortest path is: 2 → 1.
   Constraints:
-The given dates are guaranteed to be valid, so no error handling is necessary.
+The number of nodes in the tree is n.
+2 <= n <= 105
+1 <= Node.val <= n
+All the values in the tree are unique.
+1 <= startValue, destValue <= n
+startValue != destValue

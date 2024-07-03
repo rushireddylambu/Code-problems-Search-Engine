@@ -1,27 +1,22 @@
-You are given a 0-indexed integer array nums and an integer threshold.
-Find the length of the longest subarray of nums starting at index l and ending at index r (0 <= l <= r < nums.length) that satisfies the following conditions:
-nums[l] % 2 == 0
-For all indices i in the range [l, r - 1], nums[i] % 2 != nums[i + 1] % 2
-For all indices i in the range [l, r], nums[i] <= threshold
-Return an integer denoting the length of the longest such subarray.
-Note: A subarray is a contiguous non-empty sequence of elements within an array.
+Given a string s consisting of lowercase English letters, return the first letter to appear twice.
+Note:
+A letter a appears twice before another letter b if the second occurrence of a is before the second occurrence of b.
+s will contain at least one letter that appears twice.
   Example 1:
-Input: nums = [3,2,5,4], threshold = 5
-Output: 3
-Explanation: In this example, we can select the subarray that starts at l = 1 and ends at r = 3 => [2,5,4]. This subarray satisfies the conditions.
-Hence, the answer is the length of the subarray, 3. We can show that 3 is the maximum possible achievable length.
+Input: s = "abccbaacz"
+Output: "c"
+Explanation:
+The letter 'a' appears on the indexes 0, 5 and 6.
+The letter 'b' appears on the indexes 1 and 4.
+The letter 'c' appears on the indexes 2, 3 and 7.
+The letter 'z' appears on the index 8.
+The letter 'c' is the first letter to appear twice, because out of all the letters the index of its second occurrence is the smallest.
 Example 2:
-Input: nums = [1,2], threshold = 2
-Output: 1
-Explanation: In this example, we can select the subarray that starts at l = 1 and ends at r = 1 => [2]. 
-It satisfies all the conditions and we can show that 1 is the maximum possible achievable length.
-Example 3:
-Input: nums = [2,3,4,5], threshold = 4
-Output: 3
-Explanation: In this example, we can select the subarray that starts at l = 0 and ends at r = 2 => [2,3,4]. 
-It satisfies all the conditions.
-Hence, the answer is the length of the subarray, 3. We can show that 3 is the maximum possible achievable length.
+Input: s = "abcdd"
+Output: "d"
+Explanation:
+The only letter that appears twice is 'd' so we return 'd'.
   Constraints:
-1 <= nums.length <= 100 
-1 <= nums[i] <= 100 
-1 <= threshold <= 100
+2 <= s.length <= 100
+s consists of lowercase English letters.
+s has at least one repeated letter.

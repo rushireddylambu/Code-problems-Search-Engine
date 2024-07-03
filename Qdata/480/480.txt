@@ -1,16 +1,13 @@
-Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
-You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
+There is an m x n grid with a ball. The ball is initially at the position [startRow, startColumn]. You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the grid crossing the grid boundary). You can apply at most maxMove moves to the ball.
+Given the five integers m, n, maxMove, startRow, startColumn, return the number of paths to move the ball out of the grid boundary. Since the answer can be very large, return it modulo 109 + 7.
   Example 1:
-Input: nums = [1,2,1,3,2,5]
-Output: [3,5]
-Explanation:  [5, 3] is also a valid answer.
+Input: m = 2, n = 2, maxMove = 2, startRow = 0, startColumn = 0
+Output: 6
 Example 2:
-Input: nums = [-1,0]
-Output: [-1,0]
-Example 3:
-Input: nums = [0,1]
-Output: [1,0]
+Input: m = 1, n = 3, maxMove = 3, startRow = 0, startColumn = 1
+Output: 12
   Constraints:
-2 <= nums.length <= 3 * 104
--231 <= nums[i] <= 231 - 1
-Each integer in nums will appear twice, only two integers will appear once.
+1 <= m, n <= 50
+0 <= maxMove <= 50
+0 <= startRow < m
+0 <= startColumn < n

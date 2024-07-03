@@ -1,17 +1,13 @@
-Given a positive integer n, find the pivot integer x such that:
-The sum of all elements between 1 and x inclusively equals the sum of all elements between x and n inclusively.
-Return the pivot integer x. If no such integer exists, return -1. It is guaranteed that there will be at most one pivot index for the given input.
+Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
+The first node is considered odd, and the second node is even, and so on.
+Note that the relative order inside both the even and odd groups should remain as it was in the input.
+You must solve the problem in O(1) extra space complexity and O(n) time complexity.
   Example 1:
-Input: n = 8
-Output: 6
-Explanation: 6 is the pivot integer since: 1 + 2 + 3 + 4 + 5 + 6 = 6 + 7 + 8 = 21.
+Input: head = [1,2,3,4,5]
+Output: [1,3,5,2,4]
 Example 2:
-Input: n = 1
-Output: 1
-Explanation: 1 is the pivot integer since: 1 = 1.
-Example 3:
-Input: n = 4
-Output: -1
-Explanation: It can be proved that no such integer exist.
+Input: head = [2,1,3,5,6,4,7]
+Output: [2,3,6,7,1,5,4]
   Constraints:
-1 <= n <= 1000
+The number of nodes in the linked list is in the range [0, 104].
+-106 <= Node.val <= 106

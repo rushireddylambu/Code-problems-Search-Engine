@@ -1,18 +1,19 @@
-You are given an m x n matrix board containing letters 'X' and 'O', capture regions that are surrounded:
-Connect: A cell is connected to adjacent cells horizontally or vertically.
-Region: To form a region connect every 'O' cell.
-Surround: The region is surrounded with 'X' cells if you can connect the region with 'X' cells and none of the region cells are on the edge of the board.
-A surrounded region is captured by replacing all 'O's with 'X's in the input matrix board.
+You are given an integer array nums with the following properties:
+nums.length == 2 * n.
+nums contains n + 1 unique elements.
+Exactly one element of nums is repeated n times.
+Return the element that is repeated n times.
   Example 1:
-Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
-Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
-Explanation:
-In the above diagram, the bottom region is not captured because it is on the edge of the board and cannot be surrounded.
+Input: nums = [1,2,3,3]
+Output: 3
 Example 2:
-Input: board = [["X"]]
-Output: [["X"]]
+Input: nums = [2,1,2,5,3,2]
+Output: 2
+Example 3:
+Input: nums = [5,1,5,2,5,3,5,4]
+Output: 5
   Constraints:
-m == board.length
-n == board[i].length
-1 <= m, n <= 200
-board[i][j] is 'X' or 'O'.
+2 <= n <= 5000
+nums.length == 2 * n
+0 <= nums[i] <= 104
+nums contains n + 1 unique elements and one of them is repeated exactly n times.
