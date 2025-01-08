@@ -4,6 +4,6 @@
 
 •	Scrape all problem links from LeetCode using Selenium. Constructed a MySQL database to store all the scraped problem links and 
 
-•	Information Retrival using TF-IDF Natural Language Processing algorithm. Iam Implementing the TF-IDF Natural Language Processing algorithm for indexing and searching.
+•	Information Retrival using TF-IDF Natural Language Processing algorithm. Iam Implementing the Term Frequency - Inverse Document Frequency algorithm for indexing and searching.
 
 •	Managing Backend and Making sure this project becomes a product and become helpful to as many users
